@@ -1,0 +1,44 @@
+﻿@model FlowerShop.ViewModels.RequestResultVNPAYViewModel
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="wrap-vertify-error mt-3 container text-center">
+    @if (Model != null)
+    {
+        <h3 class="alert alert-danger">@Model.Message</h3>
+        <table class="table table-bordered w-50 rounded border border-2 mx-auto mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Thông tin chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mã Website (Terminal ID)</td>
+                    <td>@Model.terminalID</td>
+                </tr>
+                <tr>
+                    <td>Mã giao dịch thanh toán</td>
+                    <td>@Model.orderID</td>
+                </tr>
+                <tr>
+                    <td>Mã giao dịch tại VNPAY</td>
+                    <td>@Model.vnpayTranId</td>
+                </tr>
+                <tr>
+                    <td>Số tiền thanh toán (VND)</td>
+                    <td>@Html.FormatValue(long.Parse(Model.vnp_Amount), "{0:###,###.##}")</td>
+                </tr>
+                <tr>
+                    <td>Ngân hàng thanh toán</td>
+                    <td>@Model.bankCode</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    <a href="/Home/Index" class="btn btn-warning fw-semibold">Trở về trang chủ</a>
+</div>
+

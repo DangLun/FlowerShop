@@ -1,0 +1,116 @@
+﻿@model FlowerShop.Models.Account
+
+@{
+    ViewBag.Title = "DeleteTK";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-trash-can text-success"></i> Xóa tài khoản</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h3>Bạn có chắc chắn muốn xóa tài khoản này không?</h3>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Username)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Username)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.QuantityLog)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.QuantityLog)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LogDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LogDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TypeAccountID)
+                </dt>
+
+                <dd>
+                    @{
+                        if (Model.TypeAccountID == 1)
+                        {
+                            <span>Admin</span>;
+                        }
+                        else if (Model.TypeAccountID == 2)
+                        {
+                            <span>Khách hàng</span>;
+                        }
+                        else
+                        {
+                            <span>Unknown</span>;
+                        }
+                    }
+                </dd>
+
+                @*<dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>*@
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="d-flex align-items-center mt-3 gap-3">
+            <div>
+                @Html.ActionLink("Trở về", "ContentTK", "", new { @class = "btn btn-primary" })
+            </div>
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa tài khoản" class="btn btn-danger" /> <br />
+
+            </div>
+        </div>
+            }
+        </div>
+    </div>
+</div>

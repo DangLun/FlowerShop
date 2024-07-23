@@ -1,0 +1,62 @@
+﻿@model FlowerShop.Models.Customer
+
+@{
+    ViewBag.Title = "DetailKH";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div> 
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-circle-info text-success"></i> Chi tiết khách hàng</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h4 class="text-center text-success">THÔNG TIN CHI TIẾT KHÁCH HÀNG</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerPhone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerPhone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerAvatar)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerAvatar)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerEmail)
+                </dd>
+
+            </dl>
+            <div class="d-flex align-items-center gap-3">
+                @Html.ActionLink("Trở về", "ContentKH", "", new {@class="btn btn-primary"})
+                <div>
+                    <a class="btn btn-warning text-white" href="@Url.Action("Edit", new { id = Model.CustomerID })">Chỉnh sửa</a>
+                </div>
+            </div>
+
+        </div>
+      
+    </div>
+</div>

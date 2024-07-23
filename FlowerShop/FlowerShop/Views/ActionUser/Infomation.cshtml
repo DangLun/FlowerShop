@@ -1,0 +1,314 @@
+﻿@model FlowerShop.ViewModels.InfoUserViewModel
+@{
+    ViewBag.Title = "Infomation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="wrap-infoUser container mt-4">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thông tin người dùng</li>
+        </ol>
+    </nav>
+    <div class="infoDetail d-flex gap-3">
+        <div class="card w-25 card-infoUser">
+            <div class="userImage rounded-circle border border-2 overflow-hidden mx-auto mt-4">
+                @{
+                    if (Model.customerviewmodel.CustomerAvatar.Contains("http"))
+                    {
+                        <img src="@Model.customerviewmodel.CustomerAvatar" alt="userImage" />
+                    }
+                    else
+                    {
+                        <img src="~/Assets/Images/@Model.customerviewmodel.CustomerAvatar" alt="userImage" />
+                    }
+                }
+            </div>
+            <div class="card-body">
+                <h1 class="fw-bold fs-5 text-center text-uppercase userName">@Model.customerviewmodel.CustomerName</h1>
+                <span class="text-center d-block userEmail">@Model.customerviewmodel.CustomerEmail</span>
+                <span class="text-center d-block userPhone">@Model.customerviewmodel.CustomerPhone</span>
+                <a href="/Sign/Login" class="btn btn-danger d-flex justify-content-center mt-3">Đăng xuất</a>
+            </div>
+        </div>
+        <div class="infoNav flex-grow-1">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="order" aria-selected="true">Đơn hàng</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="address-tab" data-bs-toggle="tab" data-bs-target="#address" type="button" role="tab" aria-controls="address" aria-selected="false">Địa chỉ</button>
+                </li>
+            </ul>
+            <div class="tab-content mt-3" id="myTabContent">
+                <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col">Ngày đặt</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int orderid = -1;
+                                int totalPrice = 0;
+                                foreach (var item in Model.orderUserViewModels)
+                                {
+                                    if (item.OrderID != orderid)
+                                    {
+                                        orderid = item.OrderID;
+                                        <tr>
+                                            <th scope="row" class="align-middle">@item.OrderID</th>
+                                            <td>
+                                                <ul class="user-product-order-details">
+                                                    @{
+                                                        FlowerShop.Models.FlowerShopDbContext db = new FlowerShop.Models.FlowerShopDbContext();
+                                                        List<FlowerShop.ViewModels.OrderUserViewModel> list = new List<FlowerShop.ViewModels.OrderUserViewModel>();
+                                                        list = (from dt in db.OrderDetails
+                                                                join o in db.Orders on dt.OrderID equals o.OrderID
+                                                                join cs in db.Customers on o.CustomerID equals cs.CustomerID
+                                                                join f in db.Flowers on dt.FlowerID equals f.FlowerID
+                                                                where o.OrderID == item.OrderID
+                                                                group new { o, f } by new { o.OrderID, f.FlowerName, f.FlowerID, f.FlowerPicture, f.FlowerDiscount, f.FlowerPrice, o.CreateDate, o.Status, cs.CustomerID, dt.Quantity } into g
+                                                                select new FlowerShop.ViewModels.OrderUserViewModel
+                                                                {
+                                                                    FlowerName = g.Key.FlowerName,
+                                                                    FlowerPicture = g.Key.FlowerPicture,
+                                                                    FlowerPrice = (int)g.Key.FlowerPrice,
+                                                                    FlowerDiscount = (double)(g.Key.FlowerDiscount),
+                                                                    FlowerQuantity = (double)(g.Key.Quantity)
+                                                                }).ToList();
+                                                        totalPrice = (int)list.Sum(x => ((x.FlowerPrice - (x.FlowerPrice * x.FlowerDiscount / 100)) * x.FlowerQuantity)) + 32000;
+
+                                                        foreach (var product in list)
+                                                        {
+                                                            <li class="user-product-order-item d-flex align-items-center justify-content-start gap-2 mb-2">
+                                                                <a href="/ActionUser/ProductDetail/@item.FlowerID" class="user-product-order-link">
+                                                                    <img src="~/Assets/Images/@product.FlowerPicture" class="user-product-order-img" alt="@product.FlowerName" />
+                                                                </a>
+                                                                <a href="/ActionUser/ProductDetail/@item.FlowerID" class="user-product-order-name">
+                                                                    @product.FlowerName
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle fw-semibold">@item.CreateDate</td>
+                                            <td class="align-middle fw-semibold text-price">@Html.FormatValue(totalPrice, "{0:###,###.##}")</td>
+                                            <td class="align-middle">
+                                                @if (item.Status.Trim() == "Pending")
+                                                {
+                                                    <span class="rounded border p-2 bg-warning fw-semibold border-warning">Đợi duyệt</span>
+
+                                                }
+                                                else if (item.Status.Trim() == "Delivery")
+                                                {
+                                                    <span class="rounded border p-2 bg-primary fw-semibold border-primary text-white">Đang vận chuyển</span>
+
+                                                }
+                                                else if (item.Status.Trim() == "Canceled")
+                                                {
+                                                    <span class="rounded border p-2 bg-dark text-white fw-semibold border-dark">Đã hủy</span>
+
+                                                }
+                                                else if (item.Status.Trim() == "Completed")
+                                                {
+                                                    <span class="rounded border p-2 bg-success text-white fw-semibold border-success">Đã giao</span>
+                                                }
+                                            </td>
+                                            @if (item.Status.Trim() != "Deliveried")
+                                            {
+                                                <td class="align-middle">
+                                                    <div class="icon-content">
+                                                        @if (item.Status.Trim() == "Pending")
+                                                        {
+                                                            <a href="/ActionUser/DeleteOrder/@item.OrderID/cancel"
+                                                               aria-label="Trash"
+                                                               data-social="trash">
+                                                                <div class="filled"></div>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                                                </svg>
+                                                            </a>
+                                                            <div class="tooltip">Hủy</div>
+                                                        }
+                                                        else if(item.Status.Trim() == "Canceled" || item.Status.Trim() == "Complated")
+                                                        {
+                                                            <a href="/ActionUser/DeleteOrder/@item.OrderID/delete"
+                                                               aria-label="Trash"
+                                                               data-social="trash">
+                                                                <div class="filled"></div>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                                                </svg>
+                                                            </a>
+                                                            <div class="tooltip">Xóa</div>
+                                                        }
+                                                    </div>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                    <button type="button" class="btn btn-primary btnAddDelivery" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Thêm địa chỉ
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        @using (Html.BeginForm("HandleDelivery", "ActionUser", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(model => model.delivery.DeliveriyID, new { id = "deliveryID" })
+
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Thêm địa chỉ</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            @Html.LabelFor(model => model.delivery.Fullname, new { @class = "form-label" })
+                                            @Html.TextBoxFor(model => model.delivery.Fullname, new { @class = "form-control", id = "EditFullName", @placeholder = "Nhập tên người nhận" })
+                                        </div>
+                                        <div class="mb-3">
+                                            @Html.LabelFor(model => model.delivery.Phone, new { @class = "form-label" })
+                                            @Html.TextBoxFor(model => model.delivery.Phone, new { @class = "form-control", id = "EditPhone", @placeholder = "Nhập số điện thoại người nhận" })
+                                        </div>
+                                        <div class="mb-3">
+                                            @Html.LabelFor(model => model.delivery.DeliveryName, new { @class = "form-label" })
+                                            @Html.TextBoxFor(model => model.delivery.DeliveryName, new { @class = "form-control", id = "deliveryName", @placeholder = "Nhập địa chỉ giao tới" })
+                                        </div>
+                                        <div class="mb-3 showMainDelivery">
+                                            @Html.LabelFor(model => model.delivery.DeliveryMain, new { @class = "form-label" })
+                                            @Html.CheckBoxFor(model => model.delivery.DeliveryMain, new { @class = "form-control ui-checkbox", id = "deliveryMain" })
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        <button type="submit" class="btn btn-primary">Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+
+                    <ul class="list-address">
+                        @foreach (var item in Model.listAddress.OrderByDescending(x => x.DeliveryMain))
+                        {
+                            <li class="address-item d-flex align-items-center justify-content-between border-top border-1 mt-3 pt-3">
+                                <div>
+                                    <div>
+                                        <span class="fw-bold">Họ tên:</span>
+                                        <span>@item.FullName</span>
+                                        @if (item.DeliveryMain == true)
+                                        {
+                                            <span class="addressBase">Địa chỉ mặc định</span>
+                                        }
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Địa chỉ:</span>
+                                        <span>@item.DeliveryName</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Số điện thoại:</span>
+                                        <span>@item.Phone</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-warning text-white btnEditAddress" data_toggle="modal" data_target="#exampleModal" data-delivery-id="@item.DeliveriyID" data-fullname="@item.FullName" data-phone="@item.Phone" data-delivery-name="@item.DeliveryName" data-delivery-main="@item.DeliveryMain">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    @if (!item.DeliveryMain)
+                                    {
+                                        <a href="/ActionUser/HandleDeleteDelivery/@item.DeliveriyID" class="d-block btn btn-danger text-white"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <div id="toast"></div>
+    <script type="module" src="~/Assets/js/Toast.js"></script>
+    <script src="~/Assets/js/Infomation.js"></script>
+}
+
+@if (Session["EditSuccessDelivery"] != null)
+{
+    Session["EditSuccessDelivery"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Sửa địa chỉ giao hàng thành công !'
+        })
+    </script>
+}
+
+@if (Session["AddSuccessDelivery"] != null)
+{
+    Session["AddSuccessDelivery"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Thêm địa chỉ giao hàng thành công !'
+        })
+    </script>
+}
+@if (Session["RemoveDelivery"] != null)
+{
+    Session["RemoveDelivery"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Xoá địa chỉ thành công !'
+        })
+    </script>
+}
+@if (Session["DeleteOrder"] != null)
+{
+    Session["DeleteOrder"]= null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Xóa đơn hàng thành công !'
+        })
+    </script>
+}
+@if (Session["CancelOrder"] != null)
+{
+    Session["CancelOrder"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Hủy đơn hàng thành công !'
+        })
+    </script>
+}

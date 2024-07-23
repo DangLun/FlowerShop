@@ -1,0 +1,115 @@
+﻿@model FlowerShop.ViewModels.ChiTietDonHangViewModel
+
+@{
+    ViewBag.Title = "Order Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-circle-info text-success"></i> Chi tiết đơn hàng</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h4 class="text-center text-success">THÔNG TIN CHI TIẾT ĐƠN HÀNG</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrderID)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.OrderID)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fullname)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Fullname)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeliveryName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DeliveryName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TotalAmount)
+                </dd>
+            </dl>
+
+
+            <h3>Các sản phẩm trong đơn hàng này</h3>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Products.FirstOrDefault().FlowerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Products.FirstOrDefault().FlowerPrice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Products.FirstOrDefault().FlowerDiscount)
+                        </th>
+                        <th>
+                            Tổng tiền sản phẩm
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FlowerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FlowerPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FlowerDiscount)%
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subtotal)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <p>
+                @Html.ActionLink("Trở về", "DonHang", "", new {@class = "btn btn-primary"})
+            </p>
+        </div>
+    </div>
+</div>

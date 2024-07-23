@@ -1,0 +1,42 @@
+﻿@model FlowerShop.Models.Topic
+
+@{
+    ViewBag.Title = "DeleteCD";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-trash-can text-danger"></i> Xóa sản phẩm</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h3>Bạn vẫn muốn xóa chủ đề này chứ ?</h3>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TopicName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TopicName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color d-flex align-items-center gap-3">
+                    @Html.ActionLink("Trở về", "ContentCD", "", new {@class="btn btn-primary"})
+                    <input type="submit" value="Xóa chủ đề" class="btn btn-danger" /> <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>

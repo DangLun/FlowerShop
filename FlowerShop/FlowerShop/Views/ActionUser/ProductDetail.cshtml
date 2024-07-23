@@ -1,0 +1,137 @@
+﻿@model FlowerShop.ViewModels.ProductDetailViewModel
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="wrap-detail container mt-3">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+        </ol>
+    </nav>
+    @if (Model != null)
+    {
+        <div class="d-flex justify-content-between gap-3">
+            <div class="detail-left w-50">
+                <div class="main-image">
+                    <img id="mainImage" src="~/Assets/Images/@Model.flower.FlowerPicture" alt="@Model.flower.FlowerName" />
+                </div>
+                <div class="owl-carousel owl-theme extend-image mt-3">
+                    @{
+                        for (var i = 0; i < Model.flower.Images.Count(); i++)
+                        {
+                            <div class="item">
+                                <div class="ImageExtendFrame @((i == 0) ? "active-image-extend" : "")">
+                                    <img class="extend-image" src="~/Assets/Images/@Model.flower.Images.ElementAt(i).ImageUrl" alt="img" />
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="detail-right w-50">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h1 class="fs-3 fw-bold title-product-detail">@Model.flower.FlowerName</h1>
+                    @if (Model.flower.FlowerNew == true)
+                    {
+                        <span class="px-4 py-2 user-select-none New">New</span>
+                    }
+                </div>
+                <h5 class="fs-6 mt-3 fw-semibold">@Model.flower.FlowerDVT</h5>
+                <div class="price d-flex align-items-center gap-2 justify-content-start mt-3">
+                    <p class="text-price-old">@Html.FormatValue(Model.flower.FlowerPrice, "{0:###,###.##}") đ</p>
+                    <p class="text-price fs-5 fw-semibold">@Html.FormatValue(Model.flower.FlowerPrice - (Model.flower.FlowerDiscount * Model.flower.FlowerPrice / 100), "{0:###,###}") đ</p>
+                </div>
+                <hr />
+                <div class="dics">
+                    @Model.flower.FlowerDiscription
+                </div>
+                <a href="/Home/AddtoCart/@Model.flower.FlowerID" class="d-block text-center btn btn-warning fs-6 fw-semibold mt-4">Thêm vào giỏ</a>
+            </div>
+        </div>
+        <div class="d-flex align-items-center mt-5 gap-3">
+            <div class="line"></div>
+            <h1 class="text-center fs-3 fw-bold title-product-extend">Những mẫu cùng loại khác</h1>
+            <div class="line"></div>
+        </div>
+
+        <ul class="products d-flex flex-wrap gap-4 justify-content-start mt-3">
+            @foreach (var item in Model.flowerRelates.Take(8))
+            {
+                <li class="product-item">
+                    @if (item.FlowerNew == true)
+                    {
+                        <div class="card-custom new-product">
+                            <div class="card-image">
+                                <img src="~/Assets/Images/@item.FlowerPicture" alt="@item.FlowerName" />
+                            </div>
+                            <div class="card-details">
+                                <a href="#" class="text-title text-center fw-semibold d-block">@item.FlowerName</a>
+                                <div class="price d-flex align-items-center gap-2 justify-content-center">
+                                    @if (item.FlowerDiscount != 0)
+                                    {
+                                        <p class="text-price-old">@Html.FormatValue(item.FlowerPrice, "{0:###,###.##}") đ</p>
+                                        <p class="text-price fs-5 fw-semibold">@Html.FormatValue(item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100), "{0:###,###}") đ</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-price fs-5 fw-semibold">@Html.FormatValue(item.FlowerPrice, "{0:###,###.##}") đ</p>
+                                    }
+                                </div>
+                            </div>
+                            <a href="/Home/AddtoCart/@item.FlowerID" class="card-button d-block text-center">Thêm vào giỏ</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-custom">
+                            <a href="#" class="card-image d-block">
+                                <img src="~/Assets/Images/@item.FlowerPicture" alt="@item.FlowerName" />
+                            </a>
+                            <div class="card-details">
+                                <a href="#" class="text-title text-center fw-semibold d-block">@item.FlowerName</a>
+                                <div class="price d-flex align-items-center gap-2 justify-content-center">
+                                    @if (item.FlowerDiscount != 0)
+                                    {
+                                        <p class="text-price-old">@Html.FormatValue(item.FlowerPrice, "{0:###,###.##}") đ</p>
+                                        <p class="text-price fs-5 fw-semibold">@Html.FormatValue(item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100), "{0:###,###}") đ</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-price fs-5 fw-semibold">@Html.FormatValue(item.FlowerPrice, "{0:###,###.##}") đ</p>
+                                    }
+                                </div>
+                            </div>
+                            <a href="/Home/AddtoCart/@item.FlowerID" class="card-button d-block text-center">Thêm vào giỏ</a>
+                        </div>
+                    }
+                </li>
+            }
+        </ul>
+        
+        FlowerShop.Models.FlowerShopDbContext db = new FlowerShop.Models.FlowerShopDbContext();
+        int topicID = (int)db.Topics_Flowers.FirstOrDefault(x => x.FlowerID == Model.flower.FlowerID).TopicID;
+        <a href="/Home/ProductPage/@topicID" class="viewMore">Xem thêm</a>
+        
+    }
+</div>
+
+@section scripts{
+    <div id="toast"></div>
+    <script type="module" src="~/Assets/js/Toast.js"></script>
+    <script src="~/Assets/js/ProductDetail.js"></script>
+}
+@if (Session["AlertAddToCart"] != null)
+{
+    Session["AlertAddToCart"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Đã thêm sản phẩm vào giỏ hàng !'
+        })
+    </script>
+}

@@ -1,0 +1,70 @@
+﻿@model FlowerShop.Models.Order
+
+@{
+    ViewBag.Title = "DeleteDH";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-trash-can text-success"></i> Xóa đơn hàng</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h3>Bạn có chắc chắn muốn xóa đơn hàng này không?</h3>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Customer.CustomerName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Customer.CustomerName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Delivery.DeliveryName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Delivery.DeliveryName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="d-flex align-items-center mt-3 gap-3">
+                    <div>
+                        @Html.ActionLink("Trở về", "DonHang", "", new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Xóa đơn hàng" class="btn btn-danger" /> <br />
+
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

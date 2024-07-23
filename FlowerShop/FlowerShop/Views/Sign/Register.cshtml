@@ -1,0 +1,55 @@
+﻿@model FlowerShop.ViewModels.RegisterFormViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="wrapper-register mt-3 container">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
+        </ol>
+    </nav>
+    <div class="form-container">
+        <p class="title">Đăng ký</p>
+        @using (Html.BeginForm("HandleRegister", "Sign", FormMethod.Post, new { @class = "form-custom" }))
+        {
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.CustomerName)
+                @Html.TextBoxFor(m => m.CustomerName, new {@placeholder = "Nhập họ và tên"})
+                @Html.ValidationMessageFor(m => m.CustomerName)
+            </div>
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.CustomerEmail)
+                @Html.TextBoxFor(m => m.CustomerEmail, new { @placeholder = "Nhập Email" })
+                @Html.ValidationMessageFor(m => m.CustomerEmail)
+            </div>
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.CustomerPhone)
+                @Html.TextBoxFor(m => m.CustomerPhone, new { @placeholder = "Nhập số điện thoại" })
+                @Html.ValidationMessageFor(m => m.CustomerPhone)
+            </div>
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username, new { @placeholder = "Nhập tên tài khoản" })
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @placeholder = "Nhập mật khẩu" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="input-group-custom mb-4">
+                @Html.LabelFor(m => m.RePassword)
+                @Html.PasswordFor(m => m.RePassword, new { @placeholder = "Nhập lại mật khẩu" })
+                @Html.ValidationMessageFor(m => m.RePassword)
+            </div>
+            <button class="sign">Đăng ký</button>
+        }
+        <p class="signup mt-3">
+            Đã có tài khoản?
+            <a rel="noopener noreferrer" href="/Sign/Login" class="">Đăng nhập</a>
+        </p>
+    </div>
+</div>
+

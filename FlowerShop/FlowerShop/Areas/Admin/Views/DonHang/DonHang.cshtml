@@ -1,0 +1,101 @@
+﻿@model List<FlowerShop.ViewModels.DonHangViewModel>
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main aria-labelledby="title" class="mx-3">
+    <div class="card shadow-sm mt-2">
+        <div class="card-body">
+            <h4 class="DH"><i class="fa-solid fa-cart-shopping text-success"></i> Đơn hàng</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-end mb-4">
+                @*<a class="btn btn-primary" href="#" role="button"><i class="fa-solid fa-plus"></i> Thêm đơn hàng</a>*@
+                <div class="d-flex gap-3 justify-content-end">
+                    <!-- Search form -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" value="@ViewBag.SearchString" name="searchString">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+
+                    <!-- Export to Excel button -->
+                    <a href="@Url.Action("ExportToExcel", "DonHang")" class="btn btn-success"><i class="fa-solid fa-download"></i> Xuất File Excel</a>
+                </div>
+            </div>
+            <table class="table table-hover caption-top mt-4">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ngày tạo</th>
+                        <th scope="col">Tên khách hàng</th>
+                        <th scope="col">Địa chỉ giao hàng</th>
+                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.OrderID</th>
+                            <td>@(item.CreateDate.HasValue ? item.CreateDate.Value.ToString("dd/MM/yyyy") : "")</td>
+                            <td>@item.Fullname</td>
+                            <td class="w-25">@item.Address</td>
+                            <td>@item.TotalAmount.ToString("C")</td>
+                            <td>
+                                @if (item.Status.Trim() == "Pending")
+                                {
+                                    <span class="text-warning">@item.Status</span>
+                                }
+                                else if (item.Status.Trim() == "Delivery")
+                                {
+                                    <span class="text-info">@item.Status</span>
+                                }
+                                else if (item.Status.Trim() == "Canceled")
+                                {
+                                    <span class="text-dark">@item.Status</span>
+                                }
+                                else
+                                {
+                                    <span class="text-success">@item.Status</span>
+                                }
+                            </td>
+
+                            <td>
+                                @if (item.Status.Trim() == "Pending")
+                                {
+                                    <a class="btn btn-success" href="@Url.Action("ApproveDH", "DonHang", new { id = item.OrderID })"><i class="fa-solid fa-check"></i></a>
+                                }
+                                <!-- Bỏ điều kiện else và các nút xóa, chi tiết để hiển thị mặc định -->
+                                <a class="btn btn-danger" href="@Url.Action("DeleteDH", "DonHang", new { id = item.OrderID })"><i class="fa-solid fa-trash-can"></i> </a>
+                                <a class="btn btn-primary" href="@Url.Action("DetailDH", "DonHang", new { id = item.OrderID })"><i class="fa-solid fa-circle-exclamation"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(ViewBag.PageNumber == 1 ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("DonHang", new { page = ViewBag.PageNumber - 1, searchString = ViewBag.SearchString })">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("DonHang", new { page = i, searchString = ViewBag.SearchString })">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(ViewBag.PageNumber == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("DonHang", new { page = ViewBag.PageNumber + 1, searchString = ViewBag.SearchString })">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>
+

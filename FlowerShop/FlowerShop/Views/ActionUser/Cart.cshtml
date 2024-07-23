@@ -1,0 +1,159 @@
+﻿@model List<FlowerShop.ViewModels.CartItemViewModel>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="wrap-cart container mt-4">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
+        </ol>
+    </nav>
+    @using (Html.BeginForm("HandleUpdateCart", "ActionUser", FormMethod.Post, new { @class = "cart-detail d-flex gap-4" }))
+    {
+        <div class="cart-detail-info w-75">
+            <h1 class="fs-3 fw-semibold title-cart">Giỏ hàng</h1>
+            <div class="@(Session["QuantityCart"] == null ? "d-flex" : "d-none") align-items-center gap-3 mt-3">
+                <input type="checkbox" class="ui-checkbox checkedAll" value="false" />
+                <span>Chọn tất cả</span>
+            </div>
+
+            @if (Model != null)
+            {
+                <ul>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        var item = Model.ElementAt(i);
+                        <li class="cart-item d-flex align-items-center justify-content-between border-top border-1 pt-3 mt-3">
+                            <div class="cart-item-left d-flex align-items-center gap-3">
+                                <input type="checkbox" class="ui-checkbox checkedItem" name="items[@i].IsChecked" value="true"  @(item.IsChecked ? "checked" : "") />
+                                <input type="hidden" name="items[@i].FlowerID" value="@item.FlowerID" />
+                                <input type="hidden" name="items[@i].FlowerName" value="@item.FlowerName" />
+                                <input type="hidden" name="items[@i].FlowerPicture" value="@item.FlowerPicture" />
+                                <input type="hidden" name="items[@i].FlowerDiscount" value="@item.FlowerDiscount" />
+                                <input type="hidden" name="items[@i].FlowerPrice" value="@item.FlowerPrice" />
+                                <input type="hidden" name="items[@i].FlowerDVT" value="@item.FlowerDVT" />true
+                                <input type="hidden" name="items[@i].CustomerID" value="@item.CustomerID" />
+                                <input type="hidden" name="items[@i].TotalQuantity" value="@item.TotalQuantity" />
+
+                                <div class="ImageFrame">
+                                    <img src="~/Assets/Images/@item.FlowerPicture" alt="Image" />
+                                </div>
+                                <div class="cart-product-info">
+                                    <span class="d-block fs-5 fw-bold title-cart-item">@item.FlowerName</span>
+                                    <span class="fw-semibold">@item.FlowerDVT</span>
+                                    <div class="price d-flex align-items-center gap-2 justify-content-start">
+                                        @if ((int)item.FlowerDiscount != 0)
+                                        {
+                                            <p class="text-price-old">@Html.FormatValue(item.FlowerPrice, "{0:###,###.##}") đ</p>
+                                        }
+                                        <p class="text-price fs-5 fw-semibold">@Html.FormatValue(item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100), "{0:###,###.##}") đ</p>
+                                    </div>
+                                    <div class="quantity-control">
+                                        <button class="decrement"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" name="items[@i].FlowerQuantity" value="@item.FlowerQuantity" min="1" />
+                                        <button class="increment"><i class="fas fa-plus"></i></button>
+                                        <p class="ms-2 text-dark d-block">Số lượng có sẳn: @item.TotalQuantity</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-item-right text-end">
+                                <input type="hidden" name="Chooses[@i].Index" value="@i" />
+                                <input type="hidden" name="Chooses[@i].IsChooseDelete" value="false" class="ischoose" />
+                                <button type="submit" class="btn btn-danger btnDeleteItemCart" data-index="@i"><i class="fa-solid fa-trash"></i></button>
+                                <span class="fs-5 fw-semibold d-block mt-3">@Html.FormatValue(item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100)), "{0:###,###.##}") đ</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+            }
+            @if (Session["QuantityCart"] != null)
+            {
+                if ((int)Session["QuantityCart"] == 0)
+                {
+                    <a href="/Home/Products" class="btn btn-warning">Tiếp tục mua hàng</a>
+                }
+
+            }
+        </div>
+        <div class="cart-detail-total w-25">
+            <h1 class="fs-3 fw-semibold title-cart">Đơn hàng</h1>
+            <div class="card mt-4 card-cart-pay">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="fs-5 fw-semibold label">Tổng tiền:</h1>
+                        <span class="label"><span class="sumPrice">@(Model != null ? Html.FormatValue(Model.Where(item => item.IsChecked == true).Sum(item => (item.FlowerQuantity * item.FlowerPrice)), "{0:###,###.##}"):"0")</span><span>đ</span></span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center border-top border-1 pt-3 mt-2">
+                        <h1 class="fs-5 fw-semibold label">Được giảm:</h1>
+                        <span class="label"><span class="sumPriceDiscount">@(Model != null ? Html.FormatValue(Model.Where(item => item.IsChecked == true).Sum(item => (item.FlowerQuantity * item.FlowerPrice)) - Model.Where(item => item.IsChecked == true).Sum(item => (item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100)))), "{0:###,###.##}") : "0")</span><span>đ</span></span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center border-top border-1 pt-3 mt-2">
+                        <h1 class="fs-5 fw-semibold label">Thành tiền:</h1>
+                        <span class="fs-5 fw-bold total-cart-pay"><span class="totalPrice">@(Model != null ? Html.FormatValue(Model?.Where(item => item.IsChecked == true).Sum(item => (item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100)))), "{0:###,###.##}"):"0")</span> <span>đ</span></span>
+                    </div>
+                    <button class="btnPay">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+
+    <script src="~/Assets/js/Cart.js"></script>
+    <div id="toast"></div>
+    <script type="module" src="~/Assets/js/Toast.js"></script>
+}
+
+@if (Session["DeleteCartItem"] != null)
+{
+    Session["DeleteCartItem"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'success',
+            title: 'Thành công',
+            message: 'Xóa sản phẩm thành công !'
+        })
+    </script>
+}
+@if (Session["overQuantity"] != null)
+{
+    Session["overQuantity"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'error',
+            title: 'Thất bại',
+            message: 'Đã có sản phẩm vượt quá số lượng !'
+        })
+    </script>
+}
+@if (Session["NoItemChecked"] != null)
+{
+    Session["NoItemChecked"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'error',
+            title: 'Thất bại',
+            message: 'Vui lòng chọn sản phẩm thanh toán !'
+        })
+    </script>
+}
+@if (Session["NoItemInCart"] != null)
+{
+    Session["NoItemInCart"] = null;
+    <script type="module">
+        import toast from "../../Assets/js/Toast.js"
+        toast({
+            type: 'warning',
+            title: 'Cảnh báo',
+            message: 'Hiện tại giỏ hàng chưa có sản phẩm !'
+        })
+    </script>
+}

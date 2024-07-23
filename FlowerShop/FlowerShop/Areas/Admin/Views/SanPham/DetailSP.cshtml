@@ -1,0 +1,109 @@
+﻿@model FlowerShop.Models.Flower
+
+@{
+    ViewBag.Title = "DetailSP";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-circle-info text-success"></i> Chi tiết sản phẩm</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h4 class="text-center text-success">THÔNG TIN CHI TIẾT SẢN PHẨM</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerQuantity)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerQuantity)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerDiscount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerDiscount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerPrice)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerPrice)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerPicture)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerPicture)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerDiscription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerDiscription)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerStatus)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerStatus)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerNew)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerNew)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlowerDVT)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlowerDVT)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+
+            </dl>
+            <div class="d-flex align-items-center gap-3">
+                @Html.ActionLink("Trở về", "ContentSP", "", new { @class = "btn btn-primary" })
+                <div>
+                    <a class="btn btn-warning text-white" href="@Url.Action("EditSP", new { id = Model.FlowerID })">Chỉnh sửa</a>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

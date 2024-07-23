@@ -1,0 +1,240 @@
+﻿@model FlowerShop.ViewModels.ThemSPViewModel
+
+@{
+    ViewBag.Title = "EditSP";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@section Css{
+    <link href="~/Assets/css/Style.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("EditSP", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="card shadow-sm mt-2 mx-3">
+            <div class="card-body">
+                <h4><i class="fa-solid fa-pen-to-square text-success"></i> Sửa sản phẩm</h4>
+            </div>
+        </div>
+        <div class="card mt-4 shadow-sm mx-3">
+            <div class="card-body">
+                <h4 class="text-center text-success">THÔNG TIN SẢN PHẨM</h4>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerQuantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerDiscount, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerDiscount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerDiscount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerPictureFile, "Choose Image", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(model => model.FlowerPictureFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FlowerPictureFile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PictureList, "Chọn ảnh phụ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        <input type="file" name="PictureList" multiple class="form-control" id="fileInput" accept="image/*" />
+                        @Html.ValidationMessageFor(model => model.PictureList, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="image-preview mt-3" id="imagePreview"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerDiscription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerDiscription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerDiscription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.FlowerStatus, new SelectList(new List<SelectListItem>
+                        {
+                            new SelectListItem { Text = "True", Value = "true" },
+                            new SelectListItem { Text = "False", Value = "false" }
+                        }, "Value", "Text", Model.FlowerStatus), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FlowerStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerNew, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.FlowerNew, new SelectList(new List<SelectListItem>
+                        {
+                            new SelectListItem { Text = "True", Value = "true" },
+                            new SelectListItem { Text = "False", Value = "false" }
+                        }, "Value", "Text", Model.FlowerStatus), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FlowerNew, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlowerDVT, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.FlowerDVT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FlowerDVT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group mt-2">
+                    @Html.LabelFor(model => model.TopicName, htmlAttributes: new { @class = "control-label col-md-2 mb-2" })
+                    <div class="col-md-12 d-flex flex-wrap">
+                        @for (var i = 0; i < Model.SelectedTopics.Count(); i++)
+                        {
+                            <div class="col-md-3 mb-3">
+                                <input type="checkbox" name="SelectedTopics[@i].IsChecked" value="true" @(Model.SelectedTopics[i].IsChecked ? "checked" : "") />
+                                <input type="hidden" name="SelectedTopics[@i].TopicName" value="@Model.SelectedTopics[i].TopicName" />
+                                <input type="hidden" name="SelectedTopics[@i].TopicID" value="@Model.SelectedTopics[i].TopicID" />
+                                <label>@Model.SelectedTopics[i].TopicName</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mt-3">
+                    <div>
+                        @Html.ActionLink("Trở về", "ContentSP", "", new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-12">
+                            <input type="submit" value="Thực hiện sửa" class="btn btn-warning text-white" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        let temp = @(ViewBag.PictureList != null ? Html.Raw(ViewBag.PictureList) : "[]");
+        let filesArray = []
+        function ChangeToFile() {
+            const dataTransfer = new DataTransfer();
+            temp.forEach(item => {
+                fetch(item.URL)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const file = new File([blob], item.FileName, { type: 'image/jpeg' });
+                        dataTransfer.items.add(file);
+                        fileInput.files = dataTransfer.files;
+                        filesArray.push(file);
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = e.target.result;
+                            const imageFrame = document.createElement('div');
+                            imageFrame.classList.add('FrameImageAddProduct')
+                            imageFrame.appendChild(imgElement);
+
+
+                            const imageContainer = document.createElement('div');
+                            imageContainer.classList.add('image-container');
+
+                            const removeButton = document.createElement('button');
+                            removeButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                            removeButton.classList.add('remove-button');
+                            removeButton.addEventListener('click', () => {
+                                filesArray = filesArray.filter(f => f !== file);
+                                updateFileInput();
+                                imageContainer.remove();
+                            });
+
+                            imageContainer.appendChild(imageFrame);
+                            imageContainer.appendChild(removeButton);
+                            imagePreview.appendChild(imageContainer);
+                            updateFileInput();
+                        }
+                        reader.readAsDataURL(file);
+                    });
+            });
+        }
+        ChangeToFile();
+        fileInput.addEventListener('change', handleFiles);
+
+        function updateFileInput() {
+            const dataTransfer = new DataTransfer();
+            filesArray.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            fileInput.files = dataTransfer.files;
+        }
+
+        function handleFiles(event) {
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                filesArray.push(file)
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    const imageFrame = document.createElement('div');
+                    imageFrame.classList.add('FrameImageAddProduct')
+                    imageFrame.appendChild(imgElement);
+
+
+                    const imageContainer = document.createElement('div');
+                    imageContainer.classList.add('image-container');
+
+                    const removeButton = document.createElement('button');
+                    removeButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    removeButton.classList.add('remove-button');
+                    removeButton.addEventListener('click', () => {
+                        filesArray = filesArray.filter(f => f !== file);
+                        updateFileInput();
+                        imageContainer.remove();
+                    });
+
+                    imageContainer.appendChild(imageFrame);
+                    imageContainer.appendChild(removeButton);
+                    imagePreview.appendChild(imageContainer);
+                    updateFileInput();
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+    </script>
+}
+

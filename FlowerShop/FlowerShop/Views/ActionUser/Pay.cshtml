@@ -1,0 +1,127 @@
+﻿@model FlowerShop.ViewModels.DataPayViewModel
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="wrap-pay container">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/ActionUser/Cart">Giỏ hàng</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thanh Toán</li>
+        </ol>
+    </nav>
+    <div class="pay-container d-flex gap-3">
+        <div class="pay-left w-50">
+            <h1 class="fs-4 fw-bold title-pay">Thông tin giao hàng</h1>
+
+                @if (Session["Username"] == null && Session["Google"] == null)
+                {
+                <div class="mt-3 mb-3">
+                    <span style="color: #777; font-size: 14px;">Bạn đã có tài khoản?</span>
+                    <a href="/Sign/Login" style="font-size: 15px; font-weight: 500;">Đăng nhập</a>
+                </div>
+                }
+
+        <form class="form-pay" action="/ActionUser/HandlePay" method="post">
+            @Html.HiddenFor(model => model.customer.CustomerID)
+            @{
+                List<FlowerShop.Models.Delivery> deliveries = Model.customer.Deliveries.Where(x => x.CustomerID == Model.customer.CustomerID).OrderByDescending(x => x.DeliveryMain).ToList();
+                FlowerShop.Models.Delivery delivery = new FlowerShop.Models.Delivery();
+                if (Model.customer.SelectedDeliveryID != null)
+                {
+                    delivery = deliveries.FirstOrDefault(x => x.CustomerID == Model.customer.CustomerID && x.DeliveriyID == Model.customer.SelectedDeliveryID);
+                }
+                <span class="form-label fw-semibold" style="font-size: 13px;">Địa chỉ</span>
+                if (deliveries.Count() > 0)
+                {
+                    <select class="form-select mb-3" name="customer.SelectedDeliveryID" id="deliverySelect">
+                        @for (var i = 0; i < deliveries.Count(); i++)
+                        {
+                            <option class="option-item" value="@deliveries[i].DeliveriyID">@deliveries[i].DeliveryName</option>
+                        }
+                    </select>
+                }
+                <div class="mb-3">
+                    <label for="exampleInputName1" class="form-label fw-semibold" style="font-size: 13px;">Họ và tên</label>
+                    <input type="text" disabled class="form-control" id="exampleInputName1" name="customer.CustomerName" value="@(deliveries.Count() > 0 ? (Model.customer.SelectedDeliveryID != null ? delivery.FullName : deliveries[0].FullName) : "")" placeholder="Họ và tên">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label fw-semibold" style="font-size: 13px;">Email</label>
+                    <input type="email" disabled class="form-control" id="exampleInputEmail1" name="customer.CustomerEmail" value="@Model.customer.CustomerEmail" placeholder="Email">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="sdt" class="form-label fw-semibold" style="font-size: 13px;">Số điện thoại</label>
+                    <input type="text" disabled class="form-control" id="sdt" name="customer.CustomerPhone" value="@(deliveries.Count() > 0 ? (Model.customer.SelectedDeliveryID != null ? delivery.Phone : deliveries[0].Phone) : "")" placeholder="Số điện thoại">
+                </div>
+            }
+
+            <div class="d-flex align-items-center gap-2 p-3 rounded w-50 mx-auto mt-3 box-delivery">
+                <input class="form-check-input" type="radio" name="IsPaymentOnVNPAY" value="false" id="flexRadioDefault1" @(Model.IsPaymentOnVNPAY ? "" : "checked")>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Thanh toán khi nhận hàng
+                </label>
+            </div>
+            <div class="d-flex align-items-center gap-2 p-3 rounded w-50 mx-auto mt-3 box-delivery">
+                <input class="form-check-input" type="radio" name="IsPaymentOnVNPAY" value="true" id="flexRadioDefault2" @(Model.IsPaymentOnVNPAY ? "checked" : "")>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Thanh toán bằng VNPAY
+                </label>
+            </div>
+
+
+            @for (var i = 0; i < Model.CartItems.Count; i++)
+            {
+                <input type="hidden" name="CartItems[@i].FlowerID" value="@Model.CartItems[i].FlowerID" />
+                <input type="hidden" name="CartItems[@i].FlowerName" value="@Model.CartItems[i].FlowerName" />
+                <input type="hidden" name="CartItems[@i].FlowerPicture" value="@Model.CartItems[i].FlowerPicture" />
+                <input type="hidden" name="CartItems[@i].FlowerPrice" value="@Model.CartItems[i].FlowerPrice" />
+                <input type="hidden" name="CartItems[@i].FlowerDiscount" value="@Model.CartItems[i].FlowerDiscount" />
+                <input type="hidden" name="CartItems[@i].FlowerQuantity" value="@Model.CartItems[i].FlowerQuantity" />
+                <input type="hidden" name="CartItems[@i].FlowerDVT" value="@Model.CartItems[i].FlowerDVT" />
+            }
+
+            <button type="submit" class="btnFinishPay">Hoàn thành đơn hàng</button>
+        </form>
+        </div>
+        <div class="pay-right w-50 rounded">
+            <ul class="pay-detail border-bottom border-2">
+                @foreach (var item in Model.CartItems)
+                {
+                    <li class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="pay-detail-product d-flex align-items-center gap-2">
+                            <div class="ImageFramePay">
+                                <img src="~/Assets/Images/@item.FlowerPicture" alt="@item.FlowerName" />
+                                <span class="quantity-item-pay">@item.FlowerQuantity</span>
+                            </div>
+                            <div>
+                                <h1 class="fs-5 fw-bold title-pay-detail label">@item.FlowerName</h1>
+                                <span class="fw-semibold fs-6 label">@item.FlowerDVT</span>
+                            </div>
+                        </div>
+                        <span class="label"><span class="Prices">@Html.FormatValue(item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100)), "{0:###,###.##}")</span><span>đ</span></span>
+                    </li>
+                }
+
+            </ul>
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <h1 class="fs-6 fw-semibold label">Tạm tính:</h1>
+                <span class="label"><span class="sumPrice">@Html.FormatValue(Model.CartItems.Sum(item => item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100))), "{0:###,###.##}")</span><span>đ</span></span>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <h1 class="fs-6 fw-semibold label">Phí vận chuyển:</h1>
+                <span class="label">32,000đ</span>
+            </div>
+            <hr />
+            <div class="d-flex align-items-center justify-content-between">
+                <h1 class="fs-6 fw-semibold label">Tổng cộng:</h1>
+                <span class="text-price fw-semibold fs-5"><span class="sumPrice">@Html.FormatValue(Model.CartItems.Sum(item => item.FlowerQuantity * (item.FlowerPrice - (item.FlowerDiscount * item.FlowerPrice / 100))) + 32000, "{0:###,###.##}")</span><span>đ</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Assets/js/Pay.js"></script>
+    }

@@ -1,0 +1,173 @@
+﻿@model FlowerShop.ViewModels.HomeAdminViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+@section Css{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+}
+
+<main aria-labelledby="title" class="mx-3">
+    <div class="card shadow-sm mt-2">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-house text-success"></i> Trang chủ</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <div class="graph p-2">
+                <div class="graph-item">
+                    <h3 class="graph-item-name">Tổng Doanh Thu</h3>
+                    <div class="info-quantity">
+                        <i class="fa-brands fa-rev"></i>
+                        <div class="graph-item-quantity">
+                            @Html.FormatValue(Model.TotalIncome, "{0:###,###.##}")
+                        </div>
+                    </div>
+                    <div class="graph-item-progress">
+                        <span>Trong Tháng: </span>
+                        <span class="value">
+                            @Html.FormatValue(Model.TotalIncomeInMonth, "{0:###,###.##}")
+                        </span>
+                    </div>
+                </div>
+                <div class="graph-item">
+                    <h3 class="graph-item-name">Số lượng khách hàng</h3>
+                    <div class="info-quantity">
+                        <i class="fa-solid fa-users-rays"></i>
+                        <div class="graph-item-quantity">
+                            @Model.TotalCustomer
+                        </div>
+                    </div>
+
+                    <div class="graph-item-progress">
+                        <span>Trong Tháng: </span>
+                        <span class="value">
+                            @Model.TotalCustomerInMonth
+                        </span>
+                    </div>
+                </div>
+                <div class="graph-item">
+                    <h3 class="graph-item-name">Số Lượng Đơn Hàng</h3>
+                    <div class="info-quantity">
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                        <div class="graph-item-quantity">
+                            @Model.TotalOrder
+                        </div>
+                    </div>
+                    <div class="graph-item-progress">
+                        <span>Trong Tháng: </span>
+                        <span class="value">
+                            @Model.TotalOrderInMonth
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex mt-5 justify-content-between align-items-center">
+                <div class="p-4 rounded shadow-sm incomeChartBar">
+                    <canvas id="incomeChartBar"></canvas>
+                </div>
+                <div class="p-4 rounded shadow-sm pieChart">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+@section scripts{
+    <script>
+        var ctx = document.getElementById('incomeChartBar').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Encode(Model.Charts.ElementAt(0).Labels)),
+                datasets: [{
+                    label: 'Doanh Thu',
+                    data: @Html.Raw(Json.Encode(Model.Charts.ElementAt(0).Data)),
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Doanh thu theo năm',
+                        font: {
+                            size: 20 
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctx1 = document.getElementById('pieChart').getContext('2d');
+        var chartData = {
+            labels: @Html.Raw(Json.Encode(Model.Charts.ElementAt(1).Labels)),
+            datasets: [{
+                data: @Html.Raw(Json.Encode(Model.Charts.ElementAt(1).Data)),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(199, 199, 199, 0.6)',
+                    'rgba(83, 102, 255, 0.6)',
+                    'rgba(255, 99, 71, 0.6)',
+                    'rgba(144, 238, 144, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(199, 199, 199, 1)',
+                    'rgba(83, 102, 255, 1)',
+                    'rgba(255, 99, 71, 1)',
+                    'rgba(144, 238, 144, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        var pieChart = new Chart(ctx1, {
+            type: 'pie',
+            data: chartData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Thống kê sản phẩm / Chủ đề',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
+        });
+    </script>
+}
+
+
+

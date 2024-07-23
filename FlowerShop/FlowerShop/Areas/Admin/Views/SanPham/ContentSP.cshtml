@@ -1,0 +1,89 @@
+﻿@model List<FlowerShop.Models.Flower>
+@{
+    ViewBag.Title = "ContentSP";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<main aria-labelledby="title" class="mx-3">
+    <div class="card shadow-sm mt-2">
+        <div class="card-body">
+            <h4 class="SP"><i class="fa-brands fa-pagelines text-success"></i> Sản phẩm</h4>
+        </div>
+    </div>    
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between mb-4">
+                <a class="btn btn-primary" href="/Admin/SanPham/ThemSP" role="button"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</a>
+                <div class="d-flex gap-3 justify-content-end">
+                    <form class="d-flex" role="search" method="get" action="@Url.Action("ContentSP", "SanPham")">
+                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="searchString" value="@ViewBag.SearchString">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+                    @*<button type="button" class="btn btn-success"><i class="fa-solid fa-download"></i> Xuất File Excel</button>*@
+                    <a class="btn btn-success" href="@Url.Action("ExportToExcel", "SanPham")"><i class="fa-solid fa-download"></i> Xuất File Excel</a>
+                </div>
+            </div>
+            <table class="table mt-4">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hình</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Khuyến mãi</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Mở bán</th>
+                        <th scope="col">Mới</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.FlowerID</th>
+                            <td><div class="frameImage"><img src="~/Assets/Images/@item.FlowerPicture" alt="hinh" /></div></td>
+                            <td>@item.FlowerName</td>
+                            <td>@item.FlowerQuantity</td>
+                            <td>@item.FlowerDiscount</td>
+                            <td>@item.FlowerPrice</td>
+                            <td>@item.FlowerStatus</td>
+                            <td>@item.FlowerNew</td>
+                            <td>
+                                <a class="btn btn-warning text-white" href="/Admin/SanPham/EditSP/@item.FlowerID" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                                <a class="btn btn-danger" href="/Admin/SanPham/DeleteSP/@item.FlowerID" role="button"><i class="fa-solid fa-trash-can"></i></a>
+                                <a class="btn btn-primary" href="/Admin/SanPham/DetailSP/@item.FlowerID" role="button"><i class="fa-solid fa-circle-exclamation"></i></a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(ViewBag.PageNumber == 1 ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("ContentSP", new { page = ViewBag.PageNumber - 1, searchString = ViewBag.SearchString })">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("ContentSP", new { page = i, searchString = ViewBag.SearchString })">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(ViewBag.PageNumber == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("ContentSP", new { page = ViewBag.PageNumber + 1, searchString = ViewBag.SearchString })">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    @*<div class="d-grid gap-3 d-md-block">
+            <button class="btn btn-primary" type="button"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</button>
+            <button class="btn btn-danger" type="button"><i class="fa-solid fa-trash-can"></i> Xóa sản phẩm</button>
+            <button class="btn btn-primary" type="button"><i class="fa-solid fa-circle-exclamation"></i> Xem chi tiết</button>
+        </div>*@
+</main>
+
+

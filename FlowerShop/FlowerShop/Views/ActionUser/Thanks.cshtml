@@ -1,0 +1,47 @@
+﻿@model FlowerShop.ViewModels.RequestResultVNPAYViewModel
+@{
+    ViewBag.Title = "Thanks";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="wrap-vertify-success mt-3 container text-center">
+
+    @if (Model != null)
+    {
+        <h3 class="alert alert-info">@Model.Message</h3>
+        <table class="table table-bordered w-50 rounded border border-2 mx-auto mt-3" >
+            <thead>
+                <tr>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Thông tin chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mã Website (Terminal ID)</td>
+                    <td>@Model.terminalID</td>
+                </tr>
+                <tr>
+                    <td>Mã giao dịch thanh toán</td>
+                    <td>@Model.orderID</td>
+                </tr>
+                <tr>
+                    <td>Mã giao dịch tại VNPAY</td>
+                    <td>@Model.vnpayTranId</td>
+                </tr>
+                <tr>
+                    <td>Số tiền thanh toán (VND)</td>
+                    <td>@Html.FormatValue(long.Parse(Model.vnp_Amount), "{0:###,###.##}")</td>
+                </tr>
+                <tr>
+                    <td>Ngân hàng thanh toán</td>
+                    <td>@Model.bankCode</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1 class="fs-2 fw-semibold text-dark">Cảm ơn bạn đã mua hàng tại cửa hàng chúng tôi</h1>
+    }
+    <a href="/ActionUser/Infomation" class="btn btn-warning fw-semibold">Theo dõi đơn hàng</a>
+</div>
