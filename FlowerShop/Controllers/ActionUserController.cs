@@ -18,91 +18,42 @@ namespace FlowerShop.Controllers
     public class ActionUserController : Controller
     {
         private FlowerShopDbContext db = new FlowerShopDbContext();
-        public ActionResult Infomation()
+
+        private InfoUserViewModel getInfoUserByAccount()
         {
             InfoUserViewModel info = new InfoUserViewModel();
             var listAddress = new List<UserAddressViewModel>();
-            if (Session["username"] == null)
-            {
-                if (Session["Google"] != null)
-                {
-                    string email = Session["Google"].ToString();
-                    var kh = (from cs in db.Customers where cs.CustomerEmail == email select new CustomerViewModel
-                    {
-                        CustomerID = cs.CustomerID,
-                        CustomerAvatar = cs.CustomerAvatar,
-                        CustomerEmail = cs.CustomerEmail,
-                        CustomerName = cs.CustomerName,
-                        CustomerPhone = cs.CustomerPhone,
-                    }).FirstOrDefault();
-                    var listOrder = (from dt in db.OrderDetails
-                                join o in db.Orders on dt.OrderID equals o.OrderID
-                                join cs in db.Customers on o.CustomerID equals cs.CustomerID
-                                join f in db.Flowers on dt.FlowerID equals f.FlowerID
-                                where cs.CustomerID == kh.CustomerID
-                                group new { o, f } by new { o.OrderID, f.FlowerName, f.FlowerID, f.FlowerPicture, f.FlowerDiscount, f.FlowerPrice, o.CreateDate, o.Status, cs.CustomerID } into g
-                                select new OrderUserViewModel
-                                {
-                                    OrderID = g.Key.OrderID,
-                                    FlowerName = g.Key.FlowerName,
-                                    FlowerID = g.Key.FlowerID,
-                                    FlowerPicture = g.Key.FlowerPicture,
-                                    FlowerDiscount = (double)g.Key.FlowerDiscount,
-                                    FlowerPrice = (int)g.Key.FlowerPrice,
-                                    CreateDate = g.Key.CreateDate,
-                                    Status = g.Key.Status,
-                                    CustomerID = g.Key.CustomerID
-                                }).ToList();
-                    listAddress = (from d in db.Deliveries
-                                                    join c in db.Customers on d.CustomerID equals c.CustomerID
-                                                    where c.CustomerID == kh.CustomerID
-                                                    select new UserAddressViewModel
-                                                    {
-                                                        DeliveriyID = d.DeliveriyID,
-                                                        DeliveryMain = d.DeliveryMain,
-                                                        DeliveryName = d.DeliveryName,
-                                                        CustomerName = c.CustomerName,
-                                                        CustomerPhone = c.CustomerPhone,
-                                                        FullName = d.FullName,
-                                                        Phone = d.Phone
-                                                    }).ToList();
-
-                    info.customerviewmodel = kh;
-                    info.orderUserViewModels = listOrder;
-                    info.listAddress = listAddress; 
-                    return View(info);
-                }
-                return RedirectToAction("Index", "Home");
-            }
             string username = Session["username"].ToString();
-            var customer = (from cs in db.Customers join ac in db.Accounts on cs.CustomerID equals ac.CustomerID
+            var customer = (from cs in db.Customers
+                            join ac in db.Accounts on cs.CustomerID equals ac.CustomerID
                             where ac.Username == username
-                           select new CustomerViewModel { 
-                               CustomerID = cs.CustomerID,
-                               CustomerAvatar = cs.CustomerAvatar,
-                               CustomerEmail = cs.CustomerEmail,
-                               CustomerName = cs.CustomerName,
-                               CustomerPhone = cs.CustomerPhone,
-                           }).FirstOrDefault();
+                            select new CustomerViewModel
+                            {
+                                CustomerID = cs.CustomerID,
+                                CustomerAvatar = cs.CustomerAvatar,
+                                CustomerEmail = cs.CustomerEmail,
+                                CustomerName = cs.CustomerName,
+                                CustomerPhone = cs.CustomerPhone,
+                            }).FirstOrDefault();
 
             var result = (from dt in db.OrderDetails
-                        join o in db.Orders on dt.OrderID equals o.OrderID
-                        join cs in db.Customers on o.CustomerID equals cs.CustomerID
-                        join f in db.Flowers on dt.FlowerID equals f.FlowerID
-                        where cs.CustomerID == customer.CustomerID
-                        group new { o, f } by new { o.OrderID, f.FlowerName, f.FlowerID, f.FlowerPicture, f.FlowerDiscount, f.FlowerPrice, o.CreateDate, o.Status, cs.CustomerID } into g
-                        select new OrderUserViewModel
-                        {
-                            OrderID = g.Key.OrderID,
-                            FlowerName = g.Key.FlowerName,
-                            FlowerID = g.Key.FlowerID,
-                            FlowerPicture = g.Key.FlowerPicture,
-                            FlowerDiscount = (double)g.Key.FlowerDiscount,
-                            FlowerPrice = (int)g.Key.FlowerPrice,
-                            CreateDate = g.Key.CreateDate,
-                            Status = g.Key.Status,
-                            CustomerID = g.Key.CustomerID
-                        }).ToList();
+                          join o in db.Orders on dt.OrderID equals o.OrderID
+                          join cs in db.Customers on o.CustomerID equals cs.CustomerID
+                          join f in db.Flowers on dt.FlowerID equals f.FlowerID
+                          where cs.CustomerID == customer.CustomerID
+                          group new { o, f } by new { o.OrderID, f.FlowerName, f.FlowerID, f.FlowerPicture, f.FlowerDiscount, f.FlowerPrice, o.CreateDate, o.Status, cs.CustomerID } into g
+                          select new OrderUserViewModel
+                          {
+                              OrderID = g.Key.OrderID,
+                              FlowerName = g.Key.FlowerName,
+                              FlowerID = g.Key.FlowerID,
+                              FlowerPicture = g.Key.FlowerPicture,
+                              FlowerDiscount = (double)g.Key.FlowerDiscount,
+                              FlowerPrice = (int)g.Key.FlowerPrice,
+                              CreateDate = g.Key.CreateDate,
+                              Status = g.Key.Status,
+                              CustomerID = g.Key.CustomerID
+                          }).ToList();
             listAddress = (from d in db.Deliveries
                            join c in db.Customers on d.CustomerID equals c.CustomerID
                            where c.CustomerID == customer.CustomerID
@@ -119,6 +70,75 @@ namespace FlowerShop.Controllers
             info.customerviewmodel = customer;
             info.orderUserViewModels = result;
             info.listAddress = listAddress;
+            return info;
+        }
+
+        private InfoUserViewModel getInfoUserByAccountGoogle()
+        {
+            InfoUserViewModel info = new InfoUserViewModel();
+            var listAddress = new List<UserAddressViewModel>();
+            string email = Session["Google"].ToString();
+            var kh = (from cs in db.Customers
+                      where cs.CustomerEmail == email
+                      select new CustomerViewModel
+                      {
+                          CustomerID = cs.CustomerID,
+                          CustomerAvatar = cs.CustomerAvatar,
+                          CustomerEmail = cs.CustomerEmail,
+                          CustomerName = cs.CustomerName,
+                          CustomerPhone = cs.CustomerPhone,
+                      }).FirstOrDefault();
+            var listOrder = (from dt in db.OrderDetails
+                             join o in db.Orders on dt.OrderID equals o.OrderID
+                             join cs in db.Customers on o.CustomerID equals cs.CustomerID
+                             join f in db.Flowers on dt.FlowerID equals f.FlowerID
+                             where cs.CustomerID == kh.CustomerID
+                             group new { o, f } by new { o.OrderID, f.FlowerName, f.FlowerID, f.FlowerPicture, f.FlowerDiscount, f.FlowerPrice, o.CreateDate, o.Status, cs.CustomerID } into g
+                             select new OrderUserViewModel
+                             {
+                                 OrderID = g.Key.OrderID,
+                                 FlowerName = g.Key.FlowerName,
+                                 FlowerID = g.Key.FlowerID,
+                                 FlowerPicture = g.Key.FlowerPicture,
+                                 FlowerDiscount = (double)g.Key.FlowerDiscount,
+                                 FlowerPrice = (int)g.Key.FlowerPrice,
+                                 CreateDate = g.Key.CreateDate,
+                                 Status = g.Key.Status,
+                                 CustomerID = g.Key.CustomerID
+                             }).ToList();
+            listAddress = (from d in db.Deliveries
+                           join c in db.Customers on d.CustomerID equals c.CustomerID
+                           where c.CustomerID == kh.CustomerID
+                           select new UserAddressViewModel
+                           {
+                               DeliveriyID = d.DeliveriyID,
+                               DeliveryMain = d.DeliveryMain,
+                               DeliveryName = d.DeliveryName,
+                               CustomerName = c.CustomerName,
+                               CustomerPhone = c.CustomerPhone,
+                               FullName = d.FullName,
+                               Phone = d.Phone
+                           }).ToList();
+
+            info.customerviewmodel = kh;
+            info.orderUserViewModels = listOrder;
+            info.listAddress = listAddress;
+            return info;
+        }
+
+        public ActionResult Infomation()
+        {
+            InfoUserViewModel info = new InfoUserViewModel();
+            if (Session["username"] == null)
+            {
+                if (Session["Google"] != null)
+                {
+                    info = getInfoUserByAccountGoogle();
+                    return View(info);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            info = getInfoUserByAccount();
             return View(info);
         }
 
@@ -585,7 +605,40 @@ namespace FlowerShop.Controllers
             }
             return RedirectToAction("Infomation", "ActionUser");
         }
+        [HttpPost]
+        public ActionResult HandleUploadAvatar(HttpPostedFileBase inputAvatar)
+        {
+            if (inputAvatar != null && inputAvatar.ContentLength > 0)
+            {
+                var path = Server.MapPath("~/Assets/Images");
+                if (!System.IO.Directory.Exists(path))
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }
+                var fileName = System.IO.Path.GetFileName(inputAvatar.FileName);
+                var filePath = System.IO.Path.Combine(path, fileName);
+                inputAvatar.SaveAs(filePath);
 
-        
+                int customerID = (int)Session["CustomerID"];
+                Customer cs = db.Customers.FirstOrDefault(f => f.CustomerID == customerID);
+                if(cs != null)
+                {
+                    cs.CustomerAvatar = fileName;
+                    db.SaveChanges();
+                }   
+            }
+            InfoUserViewModel info = new InfoUserViewModel();
+            if (Session["username"] == null)
+            {
+                if (Session["Google"] != null)
+                {
+                    info = getInfoUserByAccountGoogle();
+                    return View("Infomation", info);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            info = getInfoUserByAccount();
+            return View("Infomation", info);
+        }
     }
 }

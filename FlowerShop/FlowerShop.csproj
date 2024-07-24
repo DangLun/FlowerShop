@@ -188,6 +188,7 @@
     <Compile Include="Controllers\SignController.cs" />
     <Compile Include="CustomValidations\IsValidAccount.cs" />
     <Compile Include="CustomValidations\IsValidEmail.cs" />
+    <Compile Include="CustomValidations\IsValidPassword.cs" />
     <Compile Include="CustomValidations\IsValidUsername.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +212,7 @@
     <Compile Include="ViewModels\AccountGoogleViewModel.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\CartItemViewModel.cs" />
+    <Compile Include="ViewModels\ChangepasswordViewModel.cs" />
     <Compile Include="ViewModels\ChartViewModel.cs" />
     <Compile Include="ViewModels\ChiTietDonHangViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
@@ -610,6 +612,7 @@
     <Content Include="Views\ActionUser\Thanks.cshtml" />
     <Content Include="Views\ActionUser\ProductDetail.cshtml" />
     <Content Include="Views\ActionUser\Error.cshtml" />
+    <Content Include="Views\Sign\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

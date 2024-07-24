@@ -78,7 +78,6 @@ $('.btnDeleteItemCart').click(function () {
     form.action = "/ActionUser/HandleDeleteCartItem"
     let index = $(this).data('index')
     var ele = this.parentElement.querySelector(`.ischoose`).value = true
-    console.log(ele)
     form.submit();
 })
 

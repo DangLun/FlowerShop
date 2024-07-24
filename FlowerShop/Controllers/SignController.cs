@@ -230,5 +230,26 @@ namespace FlowerShop.Controllers
                 return RedirectToAction("VertifyRegister", "Sign");
             }
         }
+
+        public ActionResult ChangePassword()
+        {
+            ChangepasswordViewModel model = new ChangepasswordViewModel();
+            string username = Session["username"].ToString();
+            model.Username = username;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult HandleChangepassword(ChangepasswordViewModel model)
+        {
+            Account ac = db.Accounts.FirstOrDefault(x => x.Username == model.Username && x.Password == model.oldPassword);
+            if (ac != null)
+            {
+                ac.Password = model.newPassword;
+                db.SaveChanges();
+                Session["ChangePWSuccess"] = 1;
+            }
+            return View("ChangePassword", model);
+        }
     }
 }
