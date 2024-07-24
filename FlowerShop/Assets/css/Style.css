@@ -3,6 +3,7 @@
     line-height: 1.8;
     padding: 0;
     margin: 0;
+    background-color: #f7f8f9;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -670,7 +671,7 @@ img{
     background-color: var(--color-highlight);
     border: 1px solid var(--color-highlight);
     width: 300px;
-    height: 350px;
+    height: 450px;
 }
 .userName {
     color: var(--color-main);

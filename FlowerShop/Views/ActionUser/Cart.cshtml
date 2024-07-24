@@ -15,7 +15,7 @@
     {
         <div class="cart-detail-info w-75">
             <h1 class="fs-3 fw-semibold title-cart">Giỏ hàng</h1>
-            <div class="@(Session["QuantityCart"] == null ? "d-flex" : "d-none") align-items-center gap-3 mt-3">
+            <div class="@(int.Parse(Session["QuantityCart"].ToString()) != 0 ? "d-flex" : "d-none") align-items-center gap-3 mt-3">
                 <input type="checkbox" class="ui-checkbox checkedAll" value="false" />
                 <span>Chọn tất cả</span>
             </div>
@@ -26,15 +26,15 @@
                     @for (var i = 0; i < Model.Count(); i++)
                     {
                         var item = Model.ElementAt(i);
-                        <li class="cart-item d-flex align-items-center justify-content-between border-top border-1 pt-3 mt-3">
+                        <li class="cart-item d-flex align-items-center justify-content-between border-top border-1 py-3 mt-3 border-bottom">
                             <div class="cart-item-left d-flex align-items-center gap-3">
-                                <input type="checkbox" class="ui-checkbox checkedItem" name="items[@i].IsChecked" value="true"  @(item.IsChecked ? "checked" : "") />
+                                <input type="checkbox" class="ui-checkbox checkedItem" name="items[@i].IsChecked" value="true" @(item.IsChecked ? "checked" : "") />
                                 <input type="hidden" name="items[@i].FlowerID" value="@item.FlowerID" />
                                 <input type="hidden" name="items[@i].FlowerName" value="@item.FlowerName" />
                                 <input type="hidden" name="items[@i].FlowerPicture" value="@item.FlowerPicture" />
                                 <input type="hidden" name="items[@i].FlowerDiscount" value="@item.FlowerDiscount" />
                                 <input type="hidden" name="items[@i].FlowerPrice" value="@item.FlowerPrice" />
-                                <input type="hidden" name="items[@i].FlowerDVT" value="@item.FlowerDVT" />true
+                                <input type="hidden" name="items[@i].FlowerDVT" value="@item.FlowerDVT" />
                                 <input type="hidden" name="items[@i].CustomerID" value="@item.CustomerID" />
                                 <input type="hidden" name="items[@i].TotalQuantity" value="@item.TotalQuantity" />
 

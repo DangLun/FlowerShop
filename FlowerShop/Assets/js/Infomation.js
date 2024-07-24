@@ -65,4 +65,13 @@
         })
     }
     UpdateTabs();
+    const HandleUploadAvatar = () => {
+        const form = document.querySelector('.formUploadAvatar')
+        const inputAvatar = document.querySelector('#inputAvatar')
+        inputAvatar.addEventListener('input', () => {
+            form.submit()
+        })
+    }
+    HandleUploadAvatar();
+
 })

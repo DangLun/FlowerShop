@@ -3,7 +3,6 @@
     ViewBag.Title = "Infomation";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
 <div class="wrap-infoUser container mt-4">
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -29,6 +28,14 @@
                 <h1 class="fw-bold fs-5 text-center text-uppercase userName">@Model.customerviewmodel.CustomerName</h1>
                 <span class="text-center d-block userEmail">@Model.customerviewmodel.CustomerEmail</span>
                 <span class="text-center d-block userPhone">@Model.customerviewmodel.CustomerPhone</span>
+                @using (Html.BeginForm("HandleUploadAvatar", "ActionUser", FormMethod.Post, new { @class = "formUploadAvatar", enctype = "multipart/form-data" }))
+                {
+                    <label for="inputAvatar" class="btn btn-success w-100 mt-2">Chọn ảnh đại diện</label>
+                    <input type="file" name="inputAvatar" id="inputAvatar" class="d-none" />
+                }
+                @if (Session["Google"] == null) { 
+                    <a href="/Sign/ChangePassword" class="btn btn-secondary d-flex justify-content-center mt-3">Đổi mật khẩu</a>
+                }
                 <a href="/Sign/Login" class="btn btn-danger d-flex justify-content-center mt-3">Đăng xuất</a>
             </div>
         </div>
@@ -139,7 +146,7 @@
                                                             </a>
                                                             <div class="tooltip">Hủy</div>
                                                         }
-                                                        else if(item.Status.Trim() == "Canceled" || item.Status.Trim() == "Complated")
+                                                        else if (item.Status.Trim() == "Canceled" || item.Status.Trim() == "Complated")
                                                         {
                                                             <a href="/ActionUser/DeleteOrder/@item.OrderID/delete"
                                                                aria-label="Trash"
@@ -290,7 +297,7 @@
 }
 @if (Session["DeleteOrder"] != null)
 {
-    Session["DeleteOrder"]= null;
+    Session["DeleteOrder"] = null;
     <script type="module">
         import toast from "../../Assets/js/Toast.js"
         toast({

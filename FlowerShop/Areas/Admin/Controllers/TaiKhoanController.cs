@@ -92,7 +92,8 @@ namespace FlowerShop.Areas.Admin.Controllers
                 data.Password = accounts.Password;
                 data.TypeAccountID = accounts.TypeAccountID;
                 data.CustomerID = accounts.CustomerID;
-                data.LogDate = accounts.LogDate; // Ensure LogDate is included here
+                data.LogDate = accounts.LogDate;
+                data.CustomerID = accounts.CustomerID;
                 kn.SaveChanges();
                 return RedirectToAction("ContentTK", "TaiKhoan");
             }
