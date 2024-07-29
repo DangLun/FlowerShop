@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using Google.Apis.Auth.OAuth2.Responses;
 using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace FlowerShop.Controllers
 {
@@ -226,7 +227,7 @@ namespace FlowerShop.Controllers
                 Session["InfoRegister"] = register;
                 string content = $"<h1>Xác nhận đăng kí tài khoản</h1>" +
                     $"<p>Mã xác minh của bạn là: {vertifyID}</p>";
-                _mailHelper.SendEmail(register.CustomerEmail, "Xác nhận đăng kí tài khoản tại Đân trần", content);
+                _mailHelper.SendEmail(register.CustomerEmail, "Xác nhận đăng kí tài khoản tại SWEET", content);
                 return RedirectToAction("VertifyRegister", "Sign");
             }
         }
@@ -242,6 +243,10 @@ namespace FlowerShop.Controllers
         [HttpPost]
         public ActionResult HandleChangepassword(ChangepasswordViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("ChangePassword", model);
+            }
             Account ac = db.Accounts.FirstOrDefault(x => x.Username == model.Username && x.Password == model.oldPassword);
             if (ac != null)
             {
@@ -250,6 +255,69 @@ namespace FlowerShop.Controllers
                 Session["ChangePWSuccess"] = 1;
             }
             return View("ChangePassword", model);
+        }
+
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult HandleForgotPassword(ForgotPasswordViewModel forgot)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("ForgotPassword", forgot);
+            }
+            using (db)
+            {
+                string vertifyID = GenerateRandomNumbers();
+                Session["vertifyID"] = vertifyID;
+                Session["InfoForgotPassword"] = forgot.Email;
+                string content = $"<h1>Mã xác nhận lấy lại mật khẩu</h1>" +
+                    $"<p>Mã xác minh của bạn là: {vertifyID}</p>";
+                _mailHelper.SendEmail(forgot.Email, "Mã xác nhận lấy lại mật khẩu tại SWEET", content);
+                return RedirectToAction("VertifyForgotPassword", "Sign");
+            }
+        }
+
+        public ActionResult VertifyForgotPassword(string vertifyID)
+        {
+            if (Session["vertifyID"] == null) return RedirectToAction("ForgotPassword", "Sign");
+            string vertifyID_Local = Session["vertifyID"].ToString();
+            if (vertifyID != vertifyID_Local && !string.IsNullOrEmpty(vertifyID))
+            {
+                ViewBag.Error = "Sai mã xác nhận";
+                return View();
+            }
+            else if (vertifyID != vertifyID_Local)
+            {
+                ViewBag.Error = "";
+                return View();
+            }
+            string Email = Session["InfoForgotPassword"].ToString();
+            PasswordGenerator generator = new PasswordGenerator();
+            string strongPassword = generator.GenerateStrongPassword();
+            
+            MailHelper _mail = new MailHelper();
+            string content = $"<h1>Mật khẩu mới</h1>" +
+                    $"<p>Mật khẩu mới của bạn là: {strongPassword}</p>";
+            _mail.SendEmail(Email, "Mật khẩu mới được thay đổi", content);
+
+            Account ac = (from a in db.Accounts join c in db.Customers on a.CustomerID equals c.CustomerID where c.CustomerEmail == Email select a).FirstOrDefault();
+            ac.Password = strongPassword;
+            db.SaveChanges();
+
+
+            Session["vertifyID"] = null;
+            Session["InfoForgotPassword"] = null;
+            return RedirectToAction("VertifyForgotSuccess", "Sign");
+        }
+
+        public ActionResult VertifyForgotSuccess()
+        {
+            return View();
         }
     }
 }
