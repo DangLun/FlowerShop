@@ -23,6 +23,7 @@ namespace FlowerShop.Models
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<Topics_Flowers> Topics_Flowers { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
+        public virtual DbSet<Banner> Banners { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

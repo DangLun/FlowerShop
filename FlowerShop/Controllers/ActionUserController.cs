@@ -172,7 +172,7 @@ namespace FlowerShop.Controllers
                 var result = getListCartItem(id);
                 return View(result);
             }
-            return View(new CartItemViewModel());
+            return RedirectToAction("Login", "Sign");
         }
         public ActionResult Pay()
         {

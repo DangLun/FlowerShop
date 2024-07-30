@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannerController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Helpers\PasswordGenerator.cs" />
     <Compile Include="Helpers\VnPayLibrary.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Delivery.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="ViewModels\DonHangViewModel.cs" />
     <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\HomeAdminViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\InfoUserViewModel.cs" />
     <Compile Include="ViewModels\OrderUserViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
@@ -582,6 +585,10 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\Banner\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banner\AddBanner.cshtml" />
+    <Content Include="Areas\Admin\Views\Banner\EditBanner.cshtml" />
+    <Content Include="Areas\Admin\Views\Banner\DeleteBanner.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

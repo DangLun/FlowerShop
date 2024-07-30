@@ -1,37 +1,25 @@
-﻿@model IEnumerable<FlowerShop.Models.Flower>
+﻿@model FlowerShop.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Trang Chủ";
 }
 
 <main>
     <div class="owl-carousel owl-carousel1 owl-theme owl-carousel-fullwidth" data-animate-effect="fadeIn">
-        <div class="item">
-            <a href="~/Assets/Images/slide2.png" class="image-popup">
-                <img src="~/Assets/Images/slide2.png" alt="image" />
-            </a>
-        </div>
-        <div class="item">
-            <a href="~/Assets/Images/slide1.jpg" class="image-popup">
-                <img src="~/Assets/Images/slide1.jpg" alt="image" />
-            </a>
-        </div>
-        <div class="item">
-            <a href="~/Assets/Images/slide3.png" class="image-popup">
-                <img src="~/Assets/Images/slide3.png" alt="image" />
-            </a>
-        </div>
-        <div class="item">
-            <a href="~/Assets/Images/slide4.jpg" class="image-popup">
-                <img src="~/Assets/Images/slide4.jpg" alt="image" />
-            </a>
-        </div>
+        @foreach (var banner in Model.Banners)
+        {
+            <div class="item">
+                <a href="~/Assets/Images/@banner.BannerName" class="image-popup">
+                    <img src="~/Assets/Images/@banner.BannerName" alt="image" />
+                </a>
+            </div>
+        }
     </div>
     <div class="contents container">
         <h1 class="text-center h1 fw-bold welcome-title">Chào mừng đến với Sweet</h1>
         <p class="disc-welcome">Chào mừng đến với nhà cái đến từ Sweet. Nơi đây chuyên bán các loại hoa từ đám cưới tới đám ma.</p>
 
         <ul class="products d-flex flex-wrap gap-4 justify-content-start">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Flowers)
             {
                 <li class="product-item">
                     @if (item.FlowerNew == true)

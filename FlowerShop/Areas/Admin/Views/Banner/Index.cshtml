@@ -1,0 +1,74 @@
+﻿@model List<FlowerShop.Models.Banner>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main aria-labelledby="title" class="mx-3">
+    <div class="card shadow-sm mt-2">
+        <div class="card-body">
+            <h4 class="CD"><i class="fa-solid fa-sliders text-success"></i> Banner</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between mb-4">
+                <a class="btn btn-primary" href="/Admin/Banner/AddBanner" role="button"><i class="fa-solid fa-plus"></i> Thêm Banner</a>
+                <div class="d-flex gap-3 justify-content-end">
+                    <!-- Search form -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="searchString" value="@ViewBag.SearchString">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+
+                    <!-- Export to Excel button -->
+                    <a href="@Url.Action("ExportToExcel", "Banner")" class="btn btn-success"><i class="fa-solid fa-download"></i> Xuất File Excel</a>
+                </div>
+
+            </div>
+            <table class="table caption-top mt-4">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Banner URL</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.BannerID</th>
+                            <td>@item.BannerName</td>
+                            <td>
+                                <a class="btn btn-warning text-white" href="/Admin/Banner/EditBanner/@item.BannerID" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-danger" href="/Admin/Banner/DeleteBanner/@item.BannerID" role="button"><i class="fa-solid fa-trash-can"></i></a>
+                                @*<a class="btn btn-primary" href="/Admin/ChuDe/DetailCD/@item.TopicID" role="button"><i class="fa-solid fa-circle-exclamation"></i></a>*@
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(ViewBag.PageNumber == 1 ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.PageNumber - 1, searchString = ViewBag.SearchString })">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("Index", new { page = i, searchString = ViewBag.SearchString })">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(ViewBag.PageNumber == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.PageNumber + 1, searchString = ViewBag.SearchString })">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>
+
