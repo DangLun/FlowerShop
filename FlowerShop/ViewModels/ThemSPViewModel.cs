@@ -22,7 +22,6 @@ namespace FlowerShop.ViewModels
         [Required(ErrorMessage = "Không được bỏ trống đơn giá")]
         [DisplayName("Đơn giá")]
         public int? FlowerPrice { get; set; }
-        [Required(ErrorMessage = "Chưa chọn hình sản phẩm")]
         [DisplayName("Hình sản phẩm")]
         public string FlowerPicture { get; set; }
         [Required(ErrorMessage = "Không được bỏ trống miêu tả")]
