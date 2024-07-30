@@ -16,7 +16,7 @@ namespace FlowerShop.CustomValidations
             {
                 string username = (string)value;    
                 FlowerShopDbContext db = new FlowerShopDbContext();
-                var ac = db.Accounts.SingleOrDefault(x => x.Username == username);
+                var ac = db.Accounts.FirstOrDefault(x => x.Username == username);
                 if (ac != null)
                 {
                     return new ValidationResult("Tên tài khoản đã tồn tại");

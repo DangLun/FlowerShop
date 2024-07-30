@@ -190,6 +190,7 @@
     <Compile Include="CustomValidations\IsValidAccount.cs" />
     <Compile Include="CustomValidations\IsValidEmail.cs" />
     <Compile Include="CustomValidations\IsValidPassword.cs" />
+    <Compile Include="CustomValidations\IsValidTopic.cs" />
     <Compile Include="CustomValidations\IsValidUsername.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

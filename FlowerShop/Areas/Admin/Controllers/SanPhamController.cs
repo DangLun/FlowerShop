@@ -115,9 +115,9 @@ namespace FlowerShop.Areas.Admin.Controllers
                         kn.SaveChanges();
                     }
                 }
-                
-            }
                 return RedirectToAction("ContentSP");
+            }
+                return View("ThemSP", flowers);
         }
         public HttpPostedFileBase ConvertImageUrlToHttpPostedFileBase(string imageUrl)
         {
@@ -259,8 +259,9 @@ namespace FlowerShop.Areas.Admin.Controllers
                     }
                 }
                 kn.SaveChanges();
+                return RedirectToAction("ContentSP");
             }
-            return RedirectToAction("ContentSP");
+            return View("EditSP", flowers);
         }
         public ActionResult DeleteSP(int id)
         {

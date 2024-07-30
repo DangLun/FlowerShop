@@ -55,6 +55,7 @@ namespace FlowerShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ThemCD(Topic topics)
         {
+            if (!ModelState.IsValid) { return View("ThemCD", topics); }
             kn.Topics.Add(topics);
             kn.SaveChanges();
             return RedirectToAction("ContentCD");
@@ -67,6 +68,7 @@ namespace FlowerShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditCD(int id, Topic topics)
         {
+            if (!ModelState.IsValid) { return View("EditCD", topics); }
             Topic data = kn.Topics.Single(x => x.TopicID == id);
             data.TopicName = topics.TopicName;
             kn.SaveChanges();

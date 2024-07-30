@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlowerShop.CustomValidations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,9 +12,10 @@ namespace FlowerShop.ViewModels
     {
         [Required(ErrorMessage = "Không được bỏ trống tên tài khoản")]
         //[UniqueUsername(ErrorMessage = "Không được bỏ trống tên khách hàng")]
-        
+        [IsValidUsername]
         [DisplayName("Tên tài khoản")]
         public string Username { get; set; }
+        [MinLength(8, ErrorMessage = "Độ dài mật khẩu ít nhất 8 kí tự")]
         [Required(ErrorMessage = "Không được bỏ trống mật khẩu")]
         [DisplayName("Mật khẩu")]
         public string Password { get; set; }
@@ -24,9 +26,10 @@ namespace FlowerShop.ViewModels
         [Required(ErrorMessage = "Số điện thoại là bắt buộc")]
         [RegularExpression(@"^\d{1,10}$", ErrorMessage = "Số điện thoại không được nhập chữ và không quá 10 số")]
         public string CustomerPhone { get; set; }
-        [Required(ErrorMessage = "Chưa chọn ảnh")]
+        //[Required(ErrorMessage = "Chưa chọn ảnh")]
         [DisplayName("Ảnh")]
         public string CustomerAvatar { get; set; }
+        [IsValidEmail]
         [Required(ErrorMessage = "Không được bỏ trống email")]
         [DisplayName("Email")]
         public string CustomerEmail { get; set; }

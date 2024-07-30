@@ -56,6 +56,10 @@ namespace FlowerShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ThemKH(ThemKHViewModel customers)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("ThemKH", customers);
+            }
             using (var transaction = kn.Database.BeginTransaction())
             {
                 try

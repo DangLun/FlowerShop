@@ -10,22 +10,22 @@ namespace FlowerShop.ViewModels
 {
     public class ThemSPViewModel
     {
-        
+        [Required(ErrorMessage = "Không được bỏ trống tên sản phẩm")]
         [DisplayName("Tên sản phẩm")]
         public string FlowerName { get; set; }
         [Required(ErrorMessage = "Không được bỏ trống số lượng")]
         [DisplayName("Số lượng")]
         public int? FlowerQuantity { get; set; }
-        //[Required(ErrorMessage = "Không được bỏ trống khuyến mãi")]
+        [Required(ErrorMessage = "Không được bỏ trống khuyến mãi")]
         [DisplayName("Khuyến mãi")]
         public double? FlowerDiscount { get; set; }
-        //[Required(ErrorMessage = "Không được bỏ trống đơn giá")]
+        [Required(ErrorMessage = "Không được bỏ trống đơn giá")]
         [DisplayName("Đơn giá")]
         public int? FlowerPrice { get; set; }
-        //[Required(ErrorMessage = "Chưa chọn hình sản phẩm")]
+        [Required(ErrorMessage = "Chưa chọn hình sản phẩm")]
         [DisplayName("Hình sản phẩm")]
         public string FlowerPicture { get; set; }
-        //[Required(ErrorMessage = "Không được bỏ trống miêu tả")]
+        [Required(ErrorMessage = "Không được bỏ trống miêu tả")]
         [DisplayName("Mô tả")]
         public string FlowerDiscription { get; set; }
         [DisplayName("Trạng thái")]

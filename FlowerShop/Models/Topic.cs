@@ -1,5 +1,6 @@
 ﻿namespace FlowerShop.Models
 {
+    using FlowerShop.CustomValidations;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -16,6 +17,8 @@
         }
 
         public int TopicID { get; set; }
+        [IsValidTopic]
+        [Required(ErrorMessage = "Không được bỏ trống tên chủ đề")]
         [DisplayName("Tên chủ đề")]
         [StringLength(250)]
         public string TopicName { get; set; }

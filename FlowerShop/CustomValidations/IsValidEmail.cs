@@ -16,7 +16,7 @@ namespace FlowerShop.CustomValidations
             {
                 string email = value as string; 
                 FlowerShopDbContext db = new FlowerShopDbContext();
-                var e = db.Customers.SingleOrDefault(x => x.CustomerEmail == email);    
+                var e = db.Customers.FirstOrDefault(x => x.CustomerEmail == email);    
                 if (e != null)
                 {
                     return new ValidationResult("Email đã có tài khoản");
