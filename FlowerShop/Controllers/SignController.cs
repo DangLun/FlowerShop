@@ -155,7 +155,7 @@ namespace FlowerShop.Controllers
             }
             string username = account.Username;
             string password = account.Password;
-            Account ac = db.Accounts.SingleOrDefault(x => x.Username == username && x.Password == password);
+            Account ac = db.Accounts.SingleOrDefault(x => x.Username == username && x.Password == password && x.Status == true);
             if (ac == null)
             {
                 return View("Login", account);
