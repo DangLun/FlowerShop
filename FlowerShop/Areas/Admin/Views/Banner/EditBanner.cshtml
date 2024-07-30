@@ -1,0 +1,45 @@
+﻿@model FlowerShop.Models.Banner
+
+@{
+    ViewBag.Title = "EditBanner";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="card shadow-sm mt-2 mx-3">
+            <div class="card-body">
+                <h4 class="KH"><i class="fa-solid fa-sliders text-success"></i> Sửa Banner</h4>
+            </div>
+        </div>
+        <div class="card mt-4 shadow-sm mx-3">
+            <div class="card-body">
+                <h4 class="text-center text-success">THÔNG TIN CHỦ ĐỀ</h4>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.BannerID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BannerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BannerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BannerName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mt-3">
+                    <div>
+                        @Html.ActionLink("Trở về", "Index", "", new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Thực hiện sửa" class="btn btn-warning text-white" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

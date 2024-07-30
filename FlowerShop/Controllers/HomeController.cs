@@ -1,4 +1,5 @@
 ﻿using FlowerShop.Models;
+using FlowerShop.ViewModels;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,16 @@ namespace FlowerShop.Controllers
         public async Task<ActionResult> Index()
         {
             List<Flower> flowers = await GetListFlower();
+            List<Banner> banners = await getListBanner();
             flowers = flowers.Take(8).ToList();
-            return View(flowers);
+            HomeViewModel model = new HomeViewModel { Banners = banners, Flowers = flowers };
+            return View(model);
+        }
+
+        public async Task<List<Banner>> getListBanner()
+        {
+            List<Banner> banners = await db.Banners.OrderByDescending(x => x.BannerID).ToListAsync();
+            return banners;
         }
 
         public async Task<List<Flower>> GetListFlower()

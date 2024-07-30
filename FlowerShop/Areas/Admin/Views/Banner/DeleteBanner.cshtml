@@ -1,0 +1,37 @@
+﻿@model FlowerShop.Models.Banner
+
+@{
+    ViewBag.Title = "DeleteBanner";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div>
+    <div class="card shadow-sm mt-2 mx-3">
+        <div class="card-body">
+            <h4><i class="fa-solid fa-sliders text-danger"></i> Xóa Banner</h4>
+        </div>
+    </div>
+    <div class="card mt-4 shadow-sm mx-3">
+        <div class="card-body">
+            <h3>Bạn vẫn muốn xóa Banner này chứ ?</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BannerName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.BannerName)
+                    </dd>
+
+                </dl>
+                <div class="form-actions no-color d-flex align-items-center gap-3">
+                    @Html.ActionLink("Trở về", "Index", "", new { @class = "btn btn-primary" })
+                    <input type="submit" value="Xóa Banner" class="btn btn-danger" /> <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
