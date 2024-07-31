@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|c:\\study\\lean_university\\nam-3\\he\\web-mvc\\btl\\flowershop\\flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\controllers\\signcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|c:\\study\\lean_university\\nam-3\\he\\web-mvc\\btl\\flowershop\\flowershop\\viewmodels\\themspviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\viewmodels\\themspviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\viewmodels\\themspviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|c:\\study\\lean_university\\nam-3\\he\\web-mvc\\btl\\flowershop\\flowershop\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|c:\\study\\lean_university\\nam-3\\he\\web-mvc\\btl\\flowershop\\flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -134,8 +134,7 @@
               "RelativeToolTip": "FlowerShop\\ViewModels\\ThemSPViewModel.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T08:43:48.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T08:43:48.235Z"
             },
             {
               "$type": "Document",
@@ -147,8 +146,7 @@
               "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\SanPhamController.cs",
               "ViewState": "AQIAAMQAAAAAAAAAAAAswAcBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T08:43:01.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T08:43:01.974Z"
             },
             {
               "$type": "Document",
@@ -172,8 +170,7 @@
               "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T07:50:42.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T07:50:42.694Z"
             },
             {
               "$type": "Document",
@@ -197,8 +194,7 @@
               "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
               "ViewState": "AQIAAGUAAAAAAAAAAAAAAHMAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T07:17:37.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T07:17:37.704Z"
             },
             {
               "$type": "Document",
@@ -341,7 +337,7 @@
               "RelativeDocumentMoniker": "FlowerShop\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "FlowerShop\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-30T06:41:06.147Z",
               "EditorCaption": ""
@@ -356,8 +352,7 @@
               "RelativeToolTip": "FlowerShop\\Controllers\\SignController.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T06:31:28.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T06:31:28.58Z"
             }
           ]
         },
