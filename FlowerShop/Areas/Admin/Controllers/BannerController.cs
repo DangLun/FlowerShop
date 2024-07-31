@@ -1,4 +1,5 @@
 ﻿using FlowerShop.Models;
+using FlowerShop.ViewModels;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -55,12 +56,13 @@ namespace FlowerShop.Areas.Admin.Controllers
 
         public ActionResult AddBanner()
         {
-            return View();
+            return View(new BannerViewModel());
         }
         [HttpPost]
-        public ActionResult AddBanner(Banner banner)
+        public ActionResult AddBanner(BannerViewModel banner)
         {
-            Banner item = new Banner { BannerName = banner.BannerName };
+            if (banner.BannerPictureFile == null) return View();
+            Banner item = new Banner { BannerName = banner.BannerPictureFile.FileName };
             db.Banners.Add(item);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -69,24 +71,25 @@ namespace FlowerShop.Areas.Admin.Controllers
         public ActionResult EditBanner(int id)
         {
             Banner banner = db.Banners.FirstOrDefault(b => b.BannerID == id);
-            return View(banner);
+            return View();
         }
         [HttpPost]
-        public ActionResult EditBanner(int id, Banner banner)
+        public ActionResult EditBanner(int id, BannerViewModel banner)
         {
-            Banner item = db.Banners.FirstOrDefault(b => b.BannerID == banner.BannerID);
+            if (banner.BannerPictureFile == null) return RedirectToAction("Index");
+            Banner item = db.Banners.FirstOrDefault(b => b.BannerID == id);
             if (item == null) return RedirectToAction("Index");
-            item.BannerName = banner.BannerName;
+            item.BannerName = banner.BannerPictureFile.FileName;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult DeleteBanner(int id) {
             Banner banner = db.Banners.FirstOrDefault(b => b.BannerID == id);
-            return View(banner);
+            return View(new BannerViewModel{ BannerName = banner.BannerName});
         }
         [HttpPost]
-        public ActionResult DeleteBanner(int id, Banner banner)
+        public ActionResult DeleteBanner(int id, BannerViewModel banner)
         {
             Banner item = db.Banners.FirstOrDefault(b => b.BannerID == id);
             if (item == null) return RedirectToAction("Index");

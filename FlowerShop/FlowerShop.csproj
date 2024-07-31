@@ -216,6 +216,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountGoogleViewModel.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\BannerViewModel.cs" />
     <Compile Include="ViewModels\CartItemViewModel.cs" />
     <Compile Include="ViewModels\ChangepasswordViewModel.cs" />
     <Compile Include="ViewModels\ChartViewModel.cs" />
