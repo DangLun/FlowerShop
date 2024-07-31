@@ -1,77 +1,81 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\",
+  "WorkspaceRootPath": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|d:\\nam3\\hkh\\lt-mvc\\flowershopgit\\flowershop\\flowershop\\areas\\admin\\views\\banner\\addbanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\banner\\addbanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|d:\\nam3\\hkh\\lt-mvc\\flowershopgit\\flowershop\\flowershop\\areas\\admin\\views\\banner\\deletebanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\banner\\deletebanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|d:\\nam3\\hkh\\lt-mvc\\flowershopgit\\flowershop\\flowershop\\areas\\admin\\views\\banner\\editbanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\banner\\editbanner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\models\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\models\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|d:\\nam3\\hkh\\lt-mvc\\flowershopgit\\flowershop\\flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|c:\\study\\lean_university\\nam-3\\he\\web-mvc\\btl\\flowershop\\flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\controllers\\signcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\controllers\\signcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\controllers\\signcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\areas\\admin\\views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\viewmodels\\themspviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\viewmodels\\themspviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\areas\\admin\\views\\chude\\contentcd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\views\\chude\\contentcd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\chude\\contentcd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\models\\flowershopdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\chudecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\chudecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\models\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\models\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\models\\flowershopdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\models\\flowershopdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\views\\actionuser\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\views\\actionuser\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\views\\actionuser\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\flowershop\\controllers\\actionusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\flowershop\\controllers\\actionusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FD008B-483E-4058-982D-2937CF608A9B}|FlowerShop\\FlowerShop.csproj|solutionrelative:flowershop\\controllers\\actionusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -82,11 +86,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 521,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 26,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -95,10 +99,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -121,153 +121,40 @@
               "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DeleteBanner.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\DeleteBanner.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Banner\\DeleteBanner.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\DeleteBanner.cshtml",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\DeleteBanner.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T13:50:06.012Z",
-              "EditorCaption": ""
+              "Title": "ThemSPViewModel.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\ViewModels\\ThemSPViewModel.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\ViewModels\\ThemSPViewModel.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\ViewModels\\ThemSPViewModel.cs",
+              "RelativeToolTip": "FlowerShop\\ViewModels\\ThemSPViewModel.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T08:43:48.235Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EditBanner.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\EditBanner.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Banner\\EditBanner.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\EditBanner.cshtml",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\EditBanner.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T13:45:58.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddBanner.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\AddBanner.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Banner\\AddBanner.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\AddBanner.cshtml",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\AddBanner.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T13:17:45.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BannerController.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAQwGIAAAAJAAAA",
+              "Title": "SanPhamController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "ViewState": "AQIAAMQAAAAAAAAAAAAswAcBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T07:17:37.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T07:15:32.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T07:15:28.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Banner.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\Banner.cs",
-              "RelativeDocumentMoniker": "FlowerShop\\Models\\Banner.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\Banner.cs",
-              "RelativeToolTip": "FlowerShop\\Models\\Banner.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T07:00:58.59Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
-              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T07:50:42.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "FlowerShop\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "FlowerShop\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAABYAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T07:09:13.711Z"
+              "WhenOpened": "2024-07-30T08:43:01.974Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "FlowerShop\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "FlowerShop\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-30T06:41:06.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Web.config",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Web.config",
-              "RelativeDocumentMoniker": "FlowerShop\\Web.config",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Web.config",
-              "RelativeToolTip": "FlowerShop\\Web.config",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAAEsAAABcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-07-30T06:42:55.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "ContentCD.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
               "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
               "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\ChuDe\\ContentCD.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -275,11 +162,95 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Banner\\Index.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T07:50:42.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChuDeController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\ChuDeController.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\ChuDeController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\ChuDeController.cs",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\ChuDeController.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAAAIcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T07:47:12.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BannerController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\BannerController.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAAAHMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T07:17:37.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAA4wDMAAACXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T07:15:43.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T07:15:32.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "FlowerShop\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T07:15:28.433Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FlowerShop\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAABYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T07:09:13.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "HomeViewModel.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\ViewModels\\HomeViewModel.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\ViewModels\\HomeViewModel.cs",
               "RelativeDocumentMoniker": "FlowerShop\\ViewModels\\HomeViewModel.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\ViewModels\\HomeViewModel.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\ViewModels\\HomeViewModel.cs",
               "RelativeToolTip": "FlowerShop\\ViewModels\\HomeViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -287,11 +258,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "FlowerShopDbContext.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\FlowerShopDbContext.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\FlowerShopDbContext.cs",
               "RelativeDocumentMoniker": "FlowerShop\\Models\\FlowerShopDbContext.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\FlowerShopDbContext.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\FlowerShopDbContext.cs",
               "RelativeToolTip": "FlowerShop\\Models\\FlowerShopDbContext.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAA4wBkAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -301,9 +272,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "Image.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\Image.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\Image.cs",
               "RelativeDocumentMoniker": "FlowerShop\\Models\\Image.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Models\\Image.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\Image.cs",
               "RelativeToolTip": "FlowerShop\\Models\\Image.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -311,11 +282,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 9,
+              "Title": "Banner.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\Banner.cs",
+              "RelativeDocumentMoniker": "FlowerShop\\Models\\Banner.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Models\\Banner.cs",
+              "RelativeToolTip": "FlowerShop\\Models\\Banner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T07:00:58.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "ActionUserController.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\ActionUserController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\ActionUserController.cs",
               "RelativeDocumentMoniker": "FlowerShop\\Controllers\\ActionUserController.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\ActionUserController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\ActionUserController.cs",
               "RelativeToolTip": "FlowerShop\\Controllers\\ActionUserController.cs",
               "ViewState": "AQIAAJ8AAAAAAAAAAAAAAK4AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -323,11 +306,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Cart.cshtml",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Views\\ActionUser\\Cart.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Views\\ActionUser\\Cart.cshtml",
               "RelativeDocumentMoniker": "FlowerShop\\Views\\ActionUser\\Cart.cshtml",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Views\\ActionUser\\Cart.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Views\\ActionUser\\Cart.cshtml",
               "RelativeToolTip": "FlowerShop\\Views\\ActionUser\\Cart.cshtml",
               "ViewState": "AQIAAIoAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -335,11 +318,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Web.config",
+              "RelativeDocumentMoniker": "FlowerShop\\Web.config",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Web.config",
+              "RelativeToolTip": "FlowerShop\\Web.config",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADMAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-07-30T06:42:55.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FlowerShop\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FlowerShop\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T06:41:06.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "SignController.cs",
-              "DocumentMoniker": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\SignController.cs",
+              "DocumentMoniker": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\SignController.cs",
               "RelativeDocumentMoniker": "FlowerShop\\Controllers\\SignController.cs",
-              "ToolTip": "D:\\NAM3\\HKH\\LT-MVC\\FlowerShopGit\\FlowerShop\\FlowerShop\\Controllers\\SignController.cs",
+              "ToolTip": "C:\\Study\\Lean_University\\Nam-3\\He\\Web-MVC\\BTL\\FlowerShop\\FlowerShop\\Controllers\\SignController.cs",
               "RelativeToolTip": "FlowerShop\\Controllers\\SignController.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
