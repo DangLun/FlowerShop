@@ -42,7 +42,18 @@
                         <tr>
 
                             <th scope="row">@item.CustomerID</th>
-                            <td><div class="frameImage"><img src="~/Assets/Images/@item.CustomerAvatar" alt="hinh" /></div></td>
+                            <td>
+                                <div class="frameImage">
+                                    @if (!item.CustomerAvatar.Contains("http"))
+                                    {
+                                        <img src="~/Assets/Images/@item.CustomerAvatar" alt="hinh" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.CustomerAvatar" alt="hinh" />
+                                    }
+                                </div>
+                            </td>
                             <td>@item.CustomerName</td>
                             <td>@item.CustomerPhone</td>
                             <td>@item.CustomerEmail</td>
