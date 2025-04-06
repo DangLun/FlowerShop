@@ -15,7 +15,7 @@ namespace FlowerShop.Helpers
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("danglun337747@gmail.com", "erjo gktk iogv ztvu"),
+                Credentials = new NetworkCredential("danglun337747@gmail.com", "your password gmail"),
                 EnableSsl = true
             };
 
